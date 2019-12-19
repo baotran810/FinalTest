@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
+    <classes>
+      <class name="joomla.page.HomePage"/>
+      <class name="joomla.page.GeneralPage"/>
+      <class name="joomla.testcase.TcJoomlaContacts001"/>
+      <class name="joomla.common.SetUpBrowser"/>
+      <class name="joomla.page.ContactsPage"/>
+      <class name="joomla.common.Log"/>
+      <class name="joomla.page.AddNewContactsPage"/>
+      <class name="joomla.testcase.TestHelper"/>
+      <class name="joomla.page.LoginPage"/>
+      <class name="joomla.constant.Constant"/>
+      <class name="joomla.common.Utilities"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001">
+        <methods>
+          <include name="tc001"/>
+        </methods>
+      </class> <!-- joomla.testcase.TcJoomlaContacts001 -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

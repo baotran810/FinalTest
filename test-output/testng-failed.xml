@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <parameter name="browser" value="ie"/>
+  <test name="TestChrome">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001"/>
+    </classes>
+  </test> <!-- TestChrome -->
+  <test name="TestFirefox">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001"/>
+    </classes>
+  </test> <!-- TestFirefox -->
+  <test name="TestIE">
+    <parameter name="browser" value="ie"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001"/>
+    </classes>
+  </test> <!-- TestIE -->
+  <test name="TestChrome(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="tc001"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- joomla.testcase.TcJoomlaContacts001 -->
+    </classes>
+  </test> <!-- TestChrome(failed) -->
+  <test name="TestFirefox(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="tc001"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- joomla.testcase.TcJoomlaContacts001 -->
+    </classes>
+  </test> <!-- TestFirefox(failed) -->
+  <test name="TestIE(failed)">
+    <parameter name="browser" value="ie"/>
+    <classes>
+      <class name="joomla.testcase.TcJoomlaContacts001">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="tc001"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- joomla.testcase.TcJoomlaContacts001 -->
+    </classes>
+  </test> <!-- TestIE(failed) -->
+</suite> <!-- Failed suite [Suite] -->
