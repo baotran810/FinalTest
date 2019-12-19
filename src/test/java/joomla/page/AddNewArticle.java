@@ -14,6 +14,7 @@ public class AddNewArticle {
 	.xpath("//label[@id='jform_catid-lbl']/..//following-sibling::div[@class='controls']");
 	private By categoryList = By
 	.xpath("//label[@id='jform_catid-lbl']/..//following-sibling::div//li[text()='Sample Data-Articles']");
+
 	private By btnSaveClose = By
 	.xpath("//div[@id='toolbar']//button[@class='btn btn-small button-save']");
 
