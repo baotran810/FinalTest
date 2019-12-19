@@ -1,13 +1,10 @@
 package joomla.testcase;
 
-import static org.testng.Assert.assertEquals;
 import joomla.common.Log;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
 import joomla.page.AddNewArticle;
-import joomla.page.AddNewContactsPage;
 import joomla.page.ArticlePage;
-import joomla.page.ContactsPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
@@ -37,7 +34,7 @@ public class TcJoomlaContacts001 extends TestHelper {
 	  article.clickNewbutton();
 	  
 	  Log.info("Step 4. Fill information in new article page");
-	  addNew.CreateArticle(articleName,articleContent);
+	  addNew.CreateArticle(articleName,articleContent,"");
 	  
 	  
   }

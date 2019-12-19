@@ -13,6 +13,7 @@ public class TestHelper {
 	@BeforeClass
 	@Parameters("browser")
 	public void beforeClass(String browser) {
+		Log.info("Step 1. Navigate to Joomla");
 		if (browser.equalsIgnoreCase("chrome")) {
 			SetUpBrowser.setupChromeBrowser();
 		} 
