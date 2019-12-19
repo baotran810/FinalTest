@@ -11,12 +11,12 @@ import joomla.page.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TcJoomlaArticle004 extends TestHelper{
+public class TC_JOOMLA_ARTICLE_004 extends TestHelper{
 
-	LoginPage lg = new LoginPage();
-	HomePage hp = new HomePage();
+	LoginPage login = new LoginPage();
+	HomePage homepage = new HomePage();
 	ArticlePage article = new ArticlePage();
-	AddNewArticle addNew = new AddNewArticle();
+	AddNewArticle addNewArticle = new AddNewArticle();
 
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
@@ -24,20 +24,20 @@ public class TcJoomlaArticle004 extends TestHelper{
 	@Test(description = "TC_JOOMLA_ARTICLE_004 - Verify user can unpublish a published article")
 	public void TC004() {
 		Log.info("Step 2. Login with valid account");
-		lg.login(Constant.USERNAME, Constant.PASSWORD);
+		login.login(Constant.USERNAME, Constant.PASSWORD);
 
 		Log.info("Step 3. Go to Article page ");
-		hp.gotoCreateArticle();
+		homepage.gotoCreateArticle();
 
 		Log.info("Step 4. Click on 'New' icon of the top right toolbar");
 		article.clickNewbutton();
 
 		Log.info("Step 5. Fill \"Add new article\" form ");
-		addNew.CreateArticle(articleName, articleContent, "Published");
+		addNewArticle.CreateArticle(articleName, articleContent, "Published");
 		
 		Log.info("Step 6. Verify the article is saved successfully ");
-		Assert.assertTrue(article.checkConfirmMessage("Article saved."), "Message displays.");
-		Assert.assertTrue(article.checkArticleExists(articleName), "Article exists.");
+		Assert.assertTrue(article.doesConfirmMessage("Article saved."), "Message displays.");
+		Assert.assertTrue(article.doesArticleExists(articleName), "Article exists.");
 		
 		Log.info("Step 7. Check on the recently added article's checkbox");
 		article.selectCheckbox(articleName);
@@ -46,8 +46,8 @@ public class TcJoomlaArticle004 extends TestHelper{
 		article.clickButton("unpublish");
 		
 		Log.info("Step 9. Verify the article is unpublished successfully");
-		Assert.assertTrue(article.checkConfirmMessage("article unpublished."), "Message displays.");
-		Assert.assertTrue(article.checkStatusExists(articleName, "unpublish"), "Set unpublish status successfully.");
+		Assert.assertTrue(article.doesConfirmMessage("article unpublished."), "Message displays.");
+		Assert.assertTrue(article.doesStatusExists(articleName, "unpublish"), "Set unpublish status successfully.");
 	}
 
 }

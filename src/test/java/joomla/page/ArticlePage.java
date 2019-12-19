@@ -24,13 +24,13 @@ public class ArticlePage {
 		return new AddNewArticle();
 	}
 
-	public boolean checkConfirmMessage(String message) {
+	public boolean doesConfirmMessage(String message) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
 		return exists;
 	}
 
-	public boolean checkArticleExists(String articleName) {
+	public boolean doesArticleExists(String articleName) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(articleXpath, articleName))).size() == 1;
 		return exists;
@@ -46,7 +46,7 @@ public class ArticlePage {
 		Constant.WEBDRIVER.findElement(By.xpath(String.format(btnXpath, buttonName))).click();
 	}
 	
-	public boolean checkStatusExists(String articleName, String status){
+	public boolean doesStatusExists(String articleName, String status){
 		boolean exists = Constant.WEBDRIVER.findElements(By.xpath(String.format(statusXpath, articleName,status))).size() == 1;
 		return exists;
 	}
