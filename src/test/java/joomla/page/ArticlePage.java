@@ -1,11 +1,11 @@
 package joomla.page;
-
 import joomla.constant.Constant;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class ArticlePage {
+
 
 	private By btnNew = By
 			.xpath("//div[@id='toolbar']//div[@id='toolbar-new']");
