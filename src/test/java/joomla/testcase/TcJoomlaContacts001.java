@@ -37,7 +37,7 @@ public class TcJoomlaContacts001 extends TestHelper {
 	  article.clickNewbutton();
 	  
 	  Log.info("Step 4. Fill information in new article page");
-	  addnew.CreateArticle(articleName,articleContent);
+	  addNew.CreateArticle(articleName,articleContent);
 	  
 	  
   }
