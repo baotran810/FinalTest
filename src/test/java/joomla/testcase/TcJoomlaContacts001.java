@@ -21,7 +21,7 @@ public class TcJoomlaContacts001 extends TestHelper {
   @Test(description="Verify that user can create new contact with valid information")
   public void tc001() {
 	  
-	  Log.info("Step 1. Log in  ");
+	  Log.info("Step 1. Log in");
 	  login.login(Constant.USERNAME, Constant.PASSWORD);
 	  Log.info("User can log in with valid account");
 	  
