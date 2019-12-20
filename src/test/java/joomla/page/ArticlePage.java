@@ -57,20 +57,6 @@ public class ArticlePage {
 				.size() == 1;
 		return exists;
 	}
-	
-	public void clickBtnSearchTool() {
-		Constant.WEBDRIVER.findElement(btnSearchTool).click();
-	}
-	
-	public void waitForDivFilter(int seconds){
-		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(divFilter));
-	}
-	
-	public void selectStatusDropdownList(String status) {
-		Constant.WEBDRIVER.findElement(listStatus).click();
-		Constant.WEBDRIVER.findElement(By.xpath(String.format(itemStatus, status))).click();
-	}
 
 	public void clickBtnSearchTool() {
 		Constant.WEBDRIVER.findElement(btnSearchTool).click();
