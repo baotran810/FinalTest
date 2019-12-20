@@ -1,10 +1,7 @@
 package joomla.testcase;
 
-import joomla.common.Log;
 import joomla.common.SetUpBrowser;
-import joomla.constant.Constant;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
