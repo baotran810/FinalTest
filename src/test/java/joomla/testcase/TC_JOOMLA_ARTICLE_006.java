@@ -1,10 +1,6 @@
 package joomla.testcase;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
-
 import joomla.common.Log;
-import joomla.common.SetUpBrowser;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
 import joomla.page.AddNewArticle;
@@ -13,6 +9,7 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 	
