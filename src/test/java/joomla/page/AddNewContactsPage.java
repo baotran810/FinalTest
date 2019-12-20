@@ -6,18 +6,17 @@ import org.openqa.selenium.By;
 
 public class AddNewContactsPage extends GeneralPage {
 
-	private By _txtName = By.id("jform_name");
-	private By _btnCategory = By.cssSelector("#jform_catid_chzn");
-	private By _btnCategoryItem = By
-			.xpath("//li[text()='Sample Data-Contact']");
-	private By _btnSaveandClose = By
+	private By txtName = By.id("jform_name");
+	private By btnCategory = By.cssSelector("#jform_catid_chzn");
+	private By btnCategoryItem = By.xpath("//li[text()='Sample Data-Contact']");
+	private By btnSaveandClose = By
 			.xpath("//button[@class='btn btn-small button-save']");
 
 	public ContactsPage addNewContact(String name) {
-		Constant.WEBDRIVER.findElement(_txtName).sendKeys(name);
-		Constant.WEBDRIVER.findElement(_btnCategory).click();
-		Constant.WEBDRIVER.findElement(_btnCategoryItem).click();
-		Constant.WEBDRIVER.findElement(_btnSaveandClose).click();
+		Constant.WEBDRIVER.findElement(txtName).sendKeys(name);
+		Constant.WEBDRIVER.findElement(btnCategory).click();
+		Constant.WEBDRIVER.findElement(btnCategoryItem).click();
+		Constant.WEBDRIVER.findElement(btnSaveandClose).click();
 		return new ContactsPage();
 	}
 
