@@ -9,6 +9,7 @@ public class ArticlePage {
 
 	private By btnNew = By
 			.xpath("//div[@id='toolbar']//div[@id='toolbar-new']");
+
 	private String confirmMsg = "//div[@class='alert alert-success']/div[contains(text(),'%s')]";
 	private String articleXpath = "//table[@id='articleList']//tr/td//a[normalize-space(text())='%s']";
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
@@ -20,10 +21,6 @@ public class ArticlePage {
 				checkboxXpath, articleName)));
 	}
 
-	public AddNewArticle clickNewButton() {
-		Constant.WEBDRIVER.findElement(btnNew).click();
-		return new AddNewArticle();
-	}
 
 	public boolean doesConfirmMessage(String message) {
 		boolean exists = Constant.WEBDRIVER.findElements(

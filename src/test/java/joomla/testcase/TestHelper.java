@@ -13,21 +13,22 @@ public class TestHelper {
 	@BeforeClass
 	@Parameters("browser")
 	public void beforeClass(String browser) {
-		if (browser.equalsIgnoreCase("chrome")) {
-			SetUpBrowser.setupChromeBrowser();
-		} 
-		else if (browser.equalsIgnoreCase("firefox")) {
-			SetUpBrowser.setupFireFoxBrowser();
-		} 
-		else if (browser.equalsIgnoreCase("ie")) {
-			SetUpBrowser.setupIEBrowser();
-		}
-	}
+		if(browser.equalsIgnoreCase("chrome")){
+			 SetUpBrowser.setupChromeBrowser();
+	  }
+			 //if browser is Firefox, then do this
+	  else if(browser.equalsIgnoreCase("firefox")){
+			 SetUpBrowser.setupFireFoxBrowser();
+	  }
+	  else if(browser.equalsIgnoreCase("ie")){
+		  SetUpBrowser.setupIEBrowser();
+	  }
+ }
 
-	@AfterClass
-	public void afterClass() {
-		Log.info("Post-Condition");
-		Constant.WEBDRIVER.quit();
-	}
+// @AfterClass
+// public void afterClass() {
+//	  Log.info("Post-Condition");
+//	  Constant.WEBDRIVER.quit();
+// }
 
 }

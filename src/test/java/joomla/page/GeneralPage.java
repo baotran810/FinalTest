@@ -11,7 +11,7 @@ public class GeneralPage {
 	private By linkArticle = By
 			.xpath("//ul[@id='menu']//li/a[text()='Articles']");
 
-	public void gotoCreateArticle() {
+	public void gotoArticle() {
 		Constant.WEBDRIVER.findElement(linkContent).click();
 		Constant.WEBDRIVER.findElement(linkArticle).click();
 	}
