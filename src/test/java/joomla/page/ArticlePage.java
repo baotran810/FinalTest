@@ -12,7 +12,10 @@ public class ArticlePage {
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
 	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']/button";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
-
+	private By _btnSearchTool = By.xpath("//button[@class='btn hasTooltip js-stools-btn-filter']");
+	private By _listStatus = By.xpath("//div[@id='filter_published_chzn']");
+	private String statusItemXpath = "//div//ul//li[text()='%s']";
+	
 	private WebElement getCheckbox(String articleName) {
 		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
 				checkboxXpath, articleName)));
@@ -46,6 +49,12 @@ public class ArticlePage {
 				By.xpath(String.format(statusXpath, articleName, status)))
 				.size() == 1;
 		return exists;
+	}
+	
+	public void searchArticleBySearchTool(String status){
+		Constant.WEBDRIVER.findElement(_btnSearchTool).click();
+		Constant.WEBDRIVER.findElement(_listStatus).click();
+		Constant.WEBDRIVER.findElement(By.xpath(String.format(statusItemXpath, status))).click();
 	}
 
 }
