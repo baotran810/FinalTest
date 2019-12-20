@@ -12,4 +12,8 @@ public class Utilities {
 	public static String randomTitle() {
 		return Constant.FAKER.book().title();
 	}
+	
+	public static String randomName(){
+		return Constant.FAKER.cat().name();
+	}
 }
