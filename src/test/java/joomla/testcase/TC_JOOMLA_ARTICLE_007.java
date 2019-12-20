@@ -11,7 +11,7 @@ import joomla.page.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_JOOMLA_ARTICLE_004 extends TestHelper{
+public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 
 	LoginPage logIn = new LoginPage();
 	HomePage homePage = new HomePage();
@@ -21,8 +21,8 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper{
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
 
-	@Test(description = "TC_JOOMLA_ARTICLE_004 - Verify user can unpublish a published article")
-	public void testTC004() {
+	@Test
+	public void testTC007() {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -34,20 +34,32 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper{
 
 		Log.info("Step 4. Fill \"Add new article\" form ");
 		addNewArticle.createArticle(articleName, articleContent, "Published");
-		
+
 		Log.info("VP. Verify the article is saved successfully ");
-		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."), "Message displays.");
-		Assert.assertTrue(article.doesArticleExists(articleName), "Article exists.");
-		
+		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."),
+				"Message displays.");
+		Assert.assertTrue(article.doesArticleExists(articleName),
+				"Article exists.");
+
 		Log.info("Step 5. Check on the recently added article's checkbox");
 		article.selectCheckbox(articleName);
-		
-		Log.info("Step 6. Click on 'Unpublish' icon of the top right toolbar");
-		article.clickButton("unpublish");
-		
-		Log.info("VP. Verify the article is unpublished successfully");
-		Assert.assertTrue(article.doesConfirmMessageDisplays("article unpublished."), "Message displays.");
-		Assert.assertTrue(article.doesStatusExists(articleName, "unpublish"), "Set unpublish status successfully.");
+
+		Log.info("Step 6. Click on 'Trash' icon of the top right toolbar");
+		article.clickButton("trash");
+
+		Log.info("VP. Verify the confirm message is displayed");
+		Assert.assertTrue(
+				article.doesConfirmMessageDisplays("article trashed."),
+				"Message displays.");
+
+		Log.info("Step 7. Select 'Trash' item of 'Status' dropdown list");
+		article.clickBtnSearchTool();
+		article.waitForDivFilter(30);
+		article.selectStatusDropdownList("Trashed");
+
+		Log.info("VP. Verify the deleted article is displayed on the table grid");
+		Assert.assertTrue(article.doesArticleExists(articleName),
+				"Article exists.");
 	}
 
 }
