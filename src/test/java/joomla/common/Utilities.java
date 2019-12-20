@@ -15,5 +15,6 @@ public class Utilities {
 	
 	public static String randomName(){
 		return Constant.FAKER.cat().name();
-	}
+	}	
+	
 }
