@@ -30,7 +30,7 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper{
 		homepage.gotoCreateArticle();
 
 		Log.info("Step 4. Click on 'New' icon of the top right toolbar");
-		article.clickNewbutton();
+		article.clickNewButton();
 
 		Log.info("Step 5. Fill \"Add new article\" form ");
 		addNewArticle.CreateArticle(articleName, articleContent, "Published");
