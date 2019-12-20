@@ -21,7 +21,7 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
 
-	@Test
+	@Test(description="TC_JOOMLA_ARTICLE_007-Verify user can move an article to trash section")
 	public void testTC007() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
