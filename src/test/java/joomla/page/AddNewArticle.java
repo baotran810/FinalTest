@@ -20,13 +20,6 @@ public class AddNewArticle {
 			.xpath("//select[@id='jform_state']/..//span[text()='Published']");
 	private String liStatus = "//select[@id='jform_state']/..//li[text()='%s']";
 
-	public static void Iframe(String iframe_id, String childen_xpath,
-			String text) {
-		WebElement Element5 = Constant.WEBDRIVER.findElement(By.id(iframe_id));
-		Constant.WEBDRIVER.switchTo().frame(Element5);
-		Constant.WEBDRIVER.findElement(By.xpath(childen_xpath)).sendKeys(text);
-	}
-
 	public void CreateArticle(String title, String content, String status) {
 		WebElement Element5 = Constant.WEBDRIVER.findElement(iframe);
 		Constant.WEBDRIVER.findElement(txtTitle).sendKeys(title);

@@ -7,13 +7,10 @@ import org.openqa.selenium.WebElement;
 
 public class ArticlePage {
 
-	private By btnNew = By
-			.xpath("//div[@id='toolbar']//div[@id='toolbar-new']");
-
 	private String confirmMsg = "//div[@class='alert alert-success']/div[contains(text(),'%s')]";
 	private String articleXpath = "//table[@id='articleList']//tr/td//a[normalize-space(text())='%s']";
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
-	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']";
+	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']/button";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
 
 	private WebElement getCheckbox(String articleName) {
@@ -21,8 +18,7 @@ public class ArticlePage {
 				checkboxXpath, articleName)));
 	}
 
-
-	public boolean doesConfirmMessage(String message) {
+	public boolean doesConfirmMessageDisplays(String message) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
 		return exists;
