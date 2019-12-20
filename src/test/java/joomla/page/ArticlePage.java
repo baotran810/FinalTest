@@ -12,9 +12,10 @@ public class ArticlePage {
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
 	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']/button";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
-	private By _btnSearchTool = By.xpath("//button[@class='btn hasTooltip js-stools-btn-filter']");
-	private By _listStatus = By.xpath("//div[@id='filter_published_chzn']");
-	private String statusItemXpath = "//div//ul//li[text()='%s']";
+	private By btnSearchTool = By.cssSelector("button[class$='js-stools-btn-filter']");
+	private By divFilter = By.cssSelector("div[class^='js-stools-container-filters']");
+	private By listStatus = By.xpath("//select[@id='filter_published']/..//span[text()='- Select Status -']");
+	private String itemStatus = "//select[@id='filter_published']/..//li[text()='%s']";
 	
 	private WebElement getCheckbox(String articleName) {
 		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
@@ -51,10 +52,6 @@ public class ArticlePage {
 		return exists;
 	}
 	
-	public void searchArticleBySearchTool(String status){
-		Constant.WEBDRIVER.findElement(_btnSearchTool).click();
-		Constant.WEBDRIVER.findElement(_listStatus).click();
-		Constant.WEBDRIVER.findElement(By.xpath(String.format(statusItemXpath, status))).click();
-	}
+	
 
 }
