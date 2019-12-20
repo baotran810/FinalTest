@@ -61,6 +61,11 @@ public class ArticlePage {
 				.size() == 1;
 		return exists;
 	}
+	
+	public void clickArticleName(String articleName)
+	{
+		Constant.WEBDRIVER.findElement(By.xpath(String.format(articleXpath, articleName))).click();		
+	}
 
 	public void clickBtnSearchTool() {
 		Constant.WEBDRIVER.findElement(btnSearchTool).click();

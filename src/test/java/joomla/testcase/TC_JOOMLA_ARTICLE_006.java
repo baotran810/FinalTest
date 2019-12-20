@@ -1,0 +1,59 @@
+package joomla.testcase;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import joomla.common.Log;
+import joomla.common.SetUpBrowser;
+import joomla.common.Utilities;
+import joomla.constant.Constant;
+import joomla.page.AddNewArticle;
+import joomla.page.ArticlePage;
+import joomla.page.HomePage;
+import joomla.page.LoginPage;
+
+import org.testng.Assert;
+
+public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
+	
+	LoginPage logIn = new LoginPage();
+	HomePage homePage = new HomePage();
+	ArticlePage article = new ArticlePage();
+	AddNewArticle addNewArticle = new AddNewArticle();
+
+	String articleName = Utilities.randomTitle();
+	String articleContent = Utilities.randomContent();
+	
+  @Test(description = "TC_JOOMLA_ARTICLE_006 - Verify user can check in an article")
+  public void TC006() {
+	  
+	Log.info("Step 2. Login with valid account");
+	logIn.login(Constant.USERNAME, Constant.PASSWORD);
+	
+	Log.info("Step 3. Go to Article page ");
+	homePage.gotoArticle();
+	
+	Log.info("Step 4. Click on 'New' icon of the top right toolbar");
+	article.clickButton("new");
+	
+	Log.info("Step 5. Fill \"Add new article\" form ");
+	addNewArticle.createArticle(articleName, articleContent, "Published");
+	
+	Log.info("Step 6. Verify the article is saved successfully ");
+	Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."), "Message displays.");
+	Assert.assertTrue(article.doesArticleExists(articleName), "Article exists.");
+	
+	Log.info("Step 7. Check on the recently added article's checkbox");
+	article.selectCheckbox(articleName);
+	
+	Log.info("Step 8. Click on 'Check In' icon of the top right toolbar");
+	article.clickButton("checkin");
+	
+	Log.info("Step 9. Verify the article is checked in successfully");
+	Assert.assertTrue(article.doesConfirmMessageDisplays("1 article checked in."), "Message displays.");
+	article.clickArticleName(articleName);
+	Constant.WEBDRIVER.navigate().back();
+	Assert.assertTrue(article.doesStatusExists(articleName, "checkedout"), "Set check-out status successfully.");
+	
+  }
+}
