@@ -12,24 +12,24 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class SetUpBrowser {
 
 	public static WebDriver WEBDRIVER;
-	
-	//set up browser with Chrome
+
+	// set up browser with Chrome
 	public static void setupChromeBrowser() {
 		WebDriverManager.chromedriver().setup();
-		 ChromeOptions options = new ChromeOptions();
-		 Constant.WEBDRIVER = new ChromeDriver(options);
-		 Constant.WEBDRIVER.get(Constant.JOOMLA_URL);
-		 Constant.WEBDRIVER.manage().window().maximize();
+		ChromeOptions options = new ChromeOptions();
+		Constant.WEBDRIVER = new ChromeDriver(options);
+		Constant.WEBDRIVER.get(Constant.JOOMLA_URL);
+		Constant.WEBDRIVER.manage().window().maximize();
 	}
-	
-	//set up browser with Firefox
+
+	// set up browser with Firefox
 	public static void setupFireFoxBrowser() {
 		WebDriverManager.firefoxdriver().setup();
 		Constant.WEBDRIVER = new FirefoxDriver();
 		Constant.WEBDRIVER.get(Constant.JOOMLA_URL);
 	}
-	
-	//set up browser with IE
+
+	// set up browser with IE
 	public static void setupIEBrowser() {
 		WebDriverManager.iedriver().setup();
 		Constant.WEBDRIVER = new InternetExplorerDriver();

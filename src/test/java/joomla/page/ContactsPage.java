@@ -6,12 +6,12 @@ import org.openqa.selenium.By;
 
 public class ContactsPage extends GeneralPage {
 
-	private By _btnNew = By.cssSelector(".button-new");
+	private By btnNew = By.cssSelector(".button-new");
 	private String messageXpath = "//div[text()='%s']";
 	private String elementXpath = "//a[text()='%s']";
 
 	public AddNewContactsPage AddNew() {
-		Constant.WEBDRIVER.findElement(_btnNew).click();
+		Constant.WEBDRIVER.findElement(btnNew).click();
 		return new AddNewContactsPage();
 	}
 

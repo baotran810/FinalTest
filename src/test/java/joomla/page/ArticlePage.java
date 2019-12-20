@@ -1,11 +1,11 @@
 package joomla.page;
+
 import joomla.constant.Constant;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class ArticlePage {
-
 
 	private By btnNew = By
 			.xpath("//div[@id='toolbar']//div[@id='toolbar-new']");
@@ -14,12 +14,13 @@ public class ArticlePage {
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
 	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
-	
-	private WebElement getCheckbox(String articleName){
-		return Constant.WEBDRIVER.findElement(By.xpath(String.format(checkboxXpath, articleName)));
+
+	private WebElement getCheckbox(String articleName) {
+		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
+				checkboxXpath, articleName)));
 	}
 
-	public AddNewArticle clickNewbutton() {
+	public AddNewArticle clickNewButton() {
 		Constant.WEBDRIVER.findElement(btnNew).click();
 		return new AddNewArticle();
 	}
@@ -35,19 +36,22 @@ public class ArticlePage {
 				By.xpath(String.format(articleXpath, articleName))).size() == 1;
 		return exists;
 	}
-	
+
 	public void selectCheckbox(String articleName) {
-			if (!this.getCheckbox(articleName).isSelected()) {
-				this.getCheckbox(articleName).click();
-			}
+		if (!this.getCheckbox(articleName).isSelected()) {
+			this.getCheckbox(articleName).click();
+		}
 	}
-	
+
 	public void clickButton(String buttonName) {
-		Constant.WEBDRIVER.findElement(By.xpath(String.format(btnXpath, buttonName))).click();
+		Constant.WEBDRIVER.findElement(
+				By.xpath(String.format(btnXpath, buttonName))).click();
 	}
-	
-	public boolean doesStatusExists(String articleName, String status){
-		boolean exists = Constant.WEBDRIVER.findElements(By.xpath(String.format(statusXpath, articleName,status))).size() == 1;
+
+	public boolean doesStatusExists(String articleName, String status) {
+		boolean exists = Constant.WEBDRIVER.findElements(
+				By.xpath(String.format(statusXpath, articleName, status)))
+				.size() == 1;
 		return exists;
 	}
 
