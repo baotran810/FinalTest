@@ -9,7 +9,6 @@ import joomla.page.EditArticlePage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
