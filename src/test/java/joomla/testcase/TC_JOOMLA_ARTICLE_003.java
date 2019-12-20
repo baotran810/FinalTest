@@ -32,7 +32,7 @@ public class TC_JOOMLA_ARTICLE_003 extends TestHelper {
 		article.clickButton("new");
 
 		Log.info("Step 5. Fill \"Add new article\" form ");
-		addNewArticle.CreateArticle(articleName, articleContent, "Unpublished");
+		addNewArticle.createArticle(articleName, articleContent, "Unpublished");
 		
 		Log.info("Step 6. Verify the article is saved successfully ");
 		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."), "Message displays.");
