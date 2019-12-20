@@ -5,8 +5,6 @@ import joomla.constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.sun.org.apache.bcel.internal.generic.NEWARRAY;
-
 public class EditArticlePage {
 
 	private By txtTitle = By.id("jform_title");

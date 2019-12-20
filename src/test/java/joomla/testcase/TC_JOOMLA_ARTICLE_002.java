@@ -9,7 +9,6 @@ import joomla.page.EditArticlePage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -38,7 +37,7 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 		article.clickButton("new");
 
 		Log.info("Step 4. Fill information in new article page");
-		addNew.CreateArticle(articleName, articleContent,"");
+		addNew.createArticle(articleName, articleContent,"");
 		
 		Log.info("Step 5. Verify the article is saved successfully ");
 		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."), "Message displays.");
