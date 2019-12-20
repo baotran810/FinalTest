@@ -22,7 +22,7 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 	String articleContent = Utilities.randomContent();
 
 	@Test
-	public void testTC007() {
+	public void testTC007() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -53,6 +53,7 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 				"Message displays.");
 
 		Log.info("Step 7. Select 'Trash' item of 'Status' dropdown list");
+		article.clickBtnClear();
 		article.clickBtnSearchTool();
 		article.waitForDivFilter(30);
 		article.selectStatusDropdownList("Trashed");

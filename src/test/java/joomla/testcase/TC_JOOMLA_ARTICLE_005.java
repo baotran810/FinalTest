@@ -23,7 +23,7 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
 	String articleContent = Utilities.randomContent();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_005 - User can move an article to the archive")
-	public void testTC005() {
+	public void testTC005() throws InterruptedException {
 		Log.info("Step 1. Log in");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 		Log.info("User can log in with valid account");
@@ -53,12 +53,12 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
 		Assert.assertTrue(article.doesConfirmMessageDisplays("article archived."), "Message displays.");
 		
 		Log.info("Step 9. Search archived article by DropDown list");
+		article.clickBtnClear();
 		article.clickBtnSearchTool();
 		article.waitForDivFilter(30);
 		article.selectStatusDropdownList("Archived");
 		
 		Log.info("Step 10. Verify that archived article displays in archived table");
 		Assert.assertTrue(article.doesArticleExists(articleName), "Article exists.");
-		
 	}
 }
