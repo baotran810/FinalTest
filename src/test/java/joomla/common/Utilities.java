@@ -17,4 +17,8 @@ public class Utilities {
 		return Constant.FAKER.cat().name();
 	}	
 	
+	public static String randomNewContact(){
+		return Constant.FAKER.book().title();
+	}
+	
 }
