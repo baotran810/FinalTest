@@ -22,7 +22,7 @@ public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 	String articleContent = Utilities.randomContent();
 	
   @Test(description = "TC_JOOMLA_ARTICLE_006 - Verify user can check in an article")
-  public void TC006() {
+  public void testTC006() {
 	  
 	Log.info("Step 2. Login with valid account");
 	logIn.login(Constant.USERNAME, Constant.PASSWORD);
