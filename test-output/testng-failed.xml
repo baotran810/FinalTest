@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <parameter name="browser" value="Chrome"/>
-  <test name="ChromeTest">
-    <parameter name="browser" value="Chrome"/>
+  <parameter name="browser" value="chrome"/>
+  <test name="Test">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_006"/>
+      <class name="joomla.testcase.TC_JOOMLA_CONTACTS_005"/>
     </classes>
-  </test> <!-- ChromeTest -->
+  </test> <!-- Test -->
 </suite> <!-- Failed suite [Suite] -->

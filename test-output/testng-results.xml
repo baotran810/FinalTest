@@ -2,27 +2,27 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="11834" started-at="2019-12-20T05:23:19Z" finished-at="2019-12-20T05:23:30Z">
+  <suite name="Suite" duration-ms="15703" started-at="2019-12-23T02:31:34Z" finished-at="2019-12-23T02:31:49Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="11834" started-at="2019-12-20T05:23:19Z" finished-at="2019-12-20T05:23:30Z">
-      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_006">
-        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:joomla.testcase.TC_JOOMLA_ARTICLE_006@1b06cab]" name="beforeClass" is-config="true" duration-ms="5185" started-at="2019-12-20T12:23:19Z" finished-at="2019-12-20T12:23:24Z">
+    <test name="Test" duration-ms="15703" started-at="2019-12-23T02:31:34Z" finished-at="2019-12-23T02:31:49Z">
+      <class name="joomla.testcase.TC_JOOMLA_CONTACTS_005">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_005@38203]" name="beforeClass" is-config="true" duration-ms="10285" started-at="2019-12-23T09:31:34Z" finished-at="2019-12-23T09:31:44Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Chrome]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="TC006()[pri:0, instance:joomla.testcase.TC_JOOMLA_ARTICLE_006@1b06cab]" name="TC006" duration-ms="6648" started-at="2019-12-20T12:23:24Z" description="TC_JOOMLA_ARTICLE_006 - Verify user can check in an article" finished-at="2019-12-20T12:23:30Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_005@38203]" name="f" duration-ms="5417" started-at="2019-12-23T09:31:44Z" description="TC_JOOMLA_CONTACTS_005 - Verify user can move a contact to the archive" finished-at="2019-12-23T09:31:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC006 -->
-      </class> <!-- joomla.testcase.TC_JOOMLA_ARTICLE_006 -->
-    </test> <!-- ChromeTest -->
+        </test-method> <!-- f -->
+      </class> <!-- joomla.testcase.TC_JOOMLA_CONTACTS_005 -->
+    </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

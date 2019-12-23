@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_006"/>
+      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_008"/>
     </classes>
   </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
-      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_006">
+      <class name="joomla.testcase.TC_JOOMLA_ARTICLE_008">
         <methods>
-          <include name="TC006"/>
+          <include name="testTC008"/>
         </methods>
-      </class> <!-- joomla.testcase.TC_JOOMLA_ARTICLE_006 -->
+      </class> <!-- joomla.testcase.TC_JOOMLA_ARTICLE_008 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
