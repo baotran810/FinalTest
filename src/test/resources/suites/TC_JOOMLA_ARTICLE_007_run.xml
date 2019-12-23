@@ -6,4 +6,16 @@
 			<class name="joomla.testcase.TC_JOOMLA_ARTICLE_007" />
 		</classes>
 	</test> <!-- Test -->
+	<test name="FireFoxTest">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="joomla.testcase.TC_JOOMLA_ARTICLE_007" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="IETest">
+		<parameter name="browser" value="ie" />
+		<classes>
+			<class name="joomla.testcase.TC_JOOMLA_ARTICLE_007" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
