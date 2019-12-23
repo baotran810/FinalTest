@@ -47,7 +47,7 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
 		article.selectCheckbox(articleName);
 
 		Log.info("Step 7. Click on 'Archive' icon of the top right toolbar");
-		article.clickButton("archive");//article archived.
+		article.clickButton("archive");
 		
 		Log.info("Step 8. Verify that the confirm message displays after archiving article");
 		Assert.assertTrue(article.doesConfirmMessageDisplays("article archived."), "Message displays.");
