@@ -11,7 +11,7 @@ public class AddNewContactsPage extends GeneralPage {
 	private By listStatus = By.xpath("//select[@id='jform_published']/../div");
 	private String itemCategory = "//select[@id='jform_catid']/..//li[text()='%s']";
 	private String itemStatus = "//select[@id='jform_published']/..//li[text()='%s']";
-	private By btnSaveandClose = By
+	private By btnSaveAndClose = By
 			.xpath("//button[@class='btn btn-small button-save']");
 
 	public ContactsPage addNewContact(String name, String status,
@@ -27,7 +27,7 @@ public class AddNewContactsPage extends GeneralPage {
 		Constant.WEBDRIVER.findElement(listCategory).click();
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(itemCategory, category))).click();
-		Constant.WEBDRIVER.findElement(btnSaveandClose).click();
+		Constant.WEBDRIVER.findElement(btnSaveAndClose).click();
 		return new ContactsPage();
 	}
 
