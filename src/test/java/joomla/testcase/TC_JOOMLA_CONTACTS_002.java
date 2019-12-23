@@ -1,17 +1,16 @@
 package joomla.testcase;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import joomla.common.Log;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
 import joomla.page.AddNewContactsPage;
 import joomla.page.ContactsPage;
-import joomla.page.EditArticlePage;
 import joomla.page.EditContactPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 	
