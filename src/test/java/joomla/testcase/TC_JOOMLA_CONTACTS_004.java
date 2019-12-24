@@ -46,7 +46,8 @@ public class TC_JOOMLA_CONTACTS_004 extends TestHelper {
 		contact.clickButton("unpublish");
 		
 		Log.info("VP. Verify the contact is unpublished successfully");
-		Assert.assertTrue(contact.doesStatusExists(nameContact, "unpublish"), "The icon of the selected item is showed as 'Unpublish'.");
+		Assert.assertTrue(contact.doesStatusExists(nameContact, "unpublish"),
+				"The icon of the selected item is showed as 'Unpublish'.");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact unpublished"), "Message displays.");
 	}
 
