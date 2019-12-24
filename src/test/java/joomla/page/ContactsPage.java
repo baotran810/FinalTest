@@ -2,12 +2,12 @@ package joomla.page;
 
 import java.util.concurrent.TimeUnit;
 
-import joomla.constant.Constant;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import joomla.constant.Constant;
 
 public class ContactsPage extends GeneralPage {
 
@@ -42,6 +42,7 @@ public class ContactsPage extends GeneralPage {
 		return exists;
 	}
 
+	
 	public boolean doesContactExists(String nameContact) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(contactXpath, nameContact))).size() == 1;
@@ -59,6 +60,11 @@ public class ContactsPage extends GeneralPage {
 				By.xpath(String.format(statusXpath, nameContact, status)))
 				.size() == 1;
 		return exists;
+	}
+		
+	public void clickContactName(String contactName)
+	{
+		Constant.WEBDRIVER.findElement(By.xpath(String.format(contactXpath, contactName))).click();		
 	}
 	
 	public void clickBtnClear() {
@@ -82,5 +88,11 @@ public class ContactsPage extends GeneralPage {
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(itemStatus, status))).click();
 	}
-
+	
+	public boolean doesIconDisplay(String nameContact, String status) {
+		String xpathSt = String.format(statusXpath, nameContact, status);	
+		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);		
+		return Constant.WEBDRIVER.findElements(By.xpath(xpathSt)).size() == 1;
+	}
+	
 }
