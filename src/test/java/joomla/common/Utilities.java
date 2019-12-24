@@ -18,7 +18,7 @@ public class Utilities {
 	}	
 	
 	public static String randomNewContact(){
-		return Constant.FAKER.book().title();
+		return Constant.FAKER.artist().name();
 	}
 	
 }
