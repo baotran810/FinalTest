@@ -47,13 +47,7 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 		contact.clickButton("checkin");
 
 		Log.info("Step 9. Verify the article is checked in successfully");
-		System.out.println("abc");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("1 contact checked in."), "Message displays.");
-		// Assert.assertTrue(contact.doesConfirmMsgDisplays("1 article checked in."),
-		// "Message displays.");
-
-		System.out.println("122");
-
 		contact.clickContactName(contactName);
 
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
