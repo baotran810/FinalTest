@@ -16,7 +16,8 @@ public class EditArticlePage {
 	private By btnSaveClose = By
 			.xpath("//div[@id='toolbar']//button[@class='btn btn-small button-save']");
 
-	public void editArticle(String newTitle, String newContent, String newCategory) {
+	public void editArticle(String newTitle, String newContent,
+			String newCategory) {
 		WebElement Element5 = Constant.WEBDRIVER.findElement(iframe);
 		Constant.WEBDRIVER.findElement(txtTitle).clear();
 		Constant.WEBDRIVER.findElement(txtTitle).sendKeys(newTitle);
@@ -24,7 +25,8 @@ public class EditArticlePage {
 		Constant.WEBDRIVER.findElement(txtArea).sendKeys(newContent);
 		Constant.WEBDRIVER.switchTo().defaultContent();
 		Constant.WEBDRIVER.findElement(category).click();
-		Constant.WEBDRIVER.findElement(By.xpath(String.format(categoryItem, newCategory))).click();
+		Constant.WEBDRIVER.findElement(
+				By.xpath(String.format(categoryItem, newCategory))).click();
 		Constant.WEBDRIVER.findElement(btnSaveClose).click();
 	}
 

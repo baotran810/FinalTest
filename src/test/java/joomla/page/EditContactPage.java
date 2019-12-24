@@ -1,11 +1,12 @@
 package joomla.page;
 
-import org.openqa.selenium.By;
-
 import joomla.constant.Constant;
+
+import org.openqa.selenium.By;
 
 public class EditContactPage {
 	private By txtName = By.id("jform_name");
+	private By txtAlias = By.id("jform_alias");
 	private By listCategory = By.xpath("//select[@id='jform_catid']/..//div");
 	private String itemCategory = "//select[@id='jform_catid']/..//li[text()='%s']";
 	private By btnSaveAndClose = By
@@ -13,6 +14,7 @@ public class EditContactPage {
 
 	public void editContact(String newName, String newCategory) {
 		Constant.WEBDRIVER.findElement(txtName).clear();
+		Constant.WEBDRIVER.findElement(txtAlias).clear();
 		Constant.WEBDRIVER.findElement(txtName).sendKeys(newName);
 		Constant.WEBDRIVER.findElement(listCategory).click();
 		Constant.WEBDRIVER.findElement(

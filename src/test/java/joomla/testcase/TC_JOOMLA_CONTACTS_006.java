@@ -1,9 +1,5 @@
 package joomla.testcase;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import joomla.common.Log;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
@@ -11,6 +7,10 @@ import joomla.page.AddNewContactsPage;
 import joomla.page.ContactsPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 	LoginPage logIn = new LoginPage();
@@ -37,8 +37,10 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 		newContact.addNewContact(contactName, "Published", category);
 
 		Log.info("VP. Verify the contact is saved successfully");
-		Assert.assertTrue(contact.doesConfirmMsgDisplays("Contact saved"), "Message displays.");
-		Assert.assertTrue(contact.doesContactExists(contactName), "Contact exists.");
+		Assert.assertTrue(contact.doesConfirmMsgDisplays("Contact saved"),
+				"Message displays.");
+		Assert.assertTrue(contact.doesContactExists(contactName),
+				"Contact exists.");
 
 		Log.info("Step 5. Check on the recently added contact's checkbox");
 		contact.selectCheckbox(contactName);
@@ -47,7 +49,9 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 		contact.clickButton("checkin");
 
 		Log.info("Step 9. Verify the article is checked in successfully");
-		Assert.assertTrue(contact.doesConfirmMsgDisplays("1 contact checked in."), "Message displays.");
+		Assert.assertTrue(
+				contact.doesConfirmMsgDisplays("1 contact checked in."),
+				"Message displays.");
 		contact.clickContactName(contactName);
 
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
