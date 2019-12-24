@@ -16,7 +16,8 @@ public class ArticlePage {
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
 	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']/button";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
-	private By btnClear = By.cssSelector("button[class$='js-stools-btn-clear']");
+	private By btnClear = By
+			.cssSelector("button[class$='js-stools-btn-clear']");
 
 	private By btnSearchTool = By
 			.cssSelector("button[class$='js-stools-btn-filter']");
@@ -61,10 +62,10 @@ public class ArticlePage {
 				.size() == 1;
 		return exists;
 	}
-	
-	public void clickArticleName(String articleName)
-	{
-		Constant.WEBDRIVER.findElement(By.xpath(String.format(articleXpath, articleName))).click();		
+
+	public void clickArticleName(String articleName) {
+		Constant.WEBDRIVER.findElement(
+				By.xpath(String.format(articleXpath, articleName))).click();
 	}
 
 	public void clickBtnSearchTool() {
@@ -76,17 +77,25 @@ public class ArticlePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(divFilter));
 	}
 
-	public void selectStatusDropdownList(String status) throws InterruptedException {
-		 Thread.sleep(10);
+	public void selectStatusDropdownList(String status)
+			throws InterruptedException {
+		Thread.sleep(10);
 		Constant.WEBDRIVER.findElement(listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
 				.implicitlyWait(60, TimeUnit.SECONDS);
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(itemStatus, status))).click();
 	}
-	
+
 	public void clickBtnClear() {
 		Constant.WEBDRIVER.findElement(btnClear).click();
+	}
+
+	public boolean doesIconDisplay(String articleName, String status) {
+		String xpathSt = String.format(statusXpath, articleName, status);
+		Constant.WEBDRIVER.manage().timeouts()
+				.implicitlyWait(3, TimeUnit.SECONDS);
+		return Constant.WEBDRIVER.findElements(By.xpath(xpathSt)).size() == 1;
 	}
 
 }
