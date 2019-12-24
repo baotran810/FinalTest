@@ -11,7 +11,7 @@ import joomla.page.ContactsPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
-public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
+public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 
 	LoginPage logIn = new LoginPage();
 	HomePage homePage = new HomePage();
@@ -21,19 +21,19 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 	String nameContact = Utilities.randomName();
 	String category = "Sample Data-Contact";
 
-	@Test(description = "TC_JOOMLA_CONTACTS_003-Verify user can publish an unpublished contact")
-	public void testTC003() {
+	@Test(description = "TC_JOOMLA_CONTACTS_007 - Verify user can move a contact to trash section")
+	public void testTC007() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 
 		Log.info("Step 2. Go to Contacts page");
 		homePage.goToContacts();
 
-		Log.info("Step 3. Click on 'New' icon of the top right toolbar");
+		Log.info("Step 3. Click on \"New\" icon of the top right toolbar");
 		contact.clickButton("new");
 
 		Log.info("Step 4. Fill information into Name, Category, Status field");
-		newContact.addNewContact(nameContact, "Unpublished", category);
+		newContact.addNewContact(nameContact, "Published", category);
 
 		Log.info("VP. Verify the contact is saved successfully");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("Contact saved"),
@@ -44,14 +44,21 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 		Log.info("Step 5. Check on the recently added contact's checkbox");
 		contact.selectCheckbox(nameContact);
 
-		Log.info("Step 6. Click on 'Publish' icon of the top right toolbar");
-		contact.clickButton("publish");
+		Log.info("Step 6. Click on 'Trash' icon of the top right toolbar");
+		contact.clickButton("trash");
 
-		Log.info("VP. Verify the contact is published successfully");
-		Assert.assertTrue(contact.doesStatusExists(nameContact, "publish"),
-				"The icon of the selected item is showed as 'Publish'.");
-		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact published"),
+		Log.info("VP. Verify the confirm message is displayed");
+		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact trashed."),
 				"Message displays.");
-	}
 
+		Log.info("Step 7. Select 'Trash' item of 'Status' dropdown list");
+		contact.clickBtnClear();
+		contact.clickBtnSearchTool();
+		contact.waitForDivFilter(30);
+		contact.selectStatusDropdownList("Trashed");
+
+		Log.info("VP. Verify the deleted contact is displayed on the table grid");
+		Assert.assertTrue(contact.doesContactExists(nameContact),
+				"Contact exists.");
+	}
 }
