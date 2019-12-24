@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
 	<test name="Test">
-		<parameter name="browser" value="ie" />
+		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_005" />
+			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_008" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

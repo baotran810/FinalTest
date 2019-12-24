@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
   <test name="Test">
-  		<parameter name="browser" value="chrome" />
+  		<parameter name="browser" value="ie" />
     <classes>
       <class name="joomla.testcase.TC_JOOMLA_ARTICLE_008"/>
     </classes>

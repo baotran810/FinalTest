@@ -191,3 +191,86 @@
 2019-12-23 09:31:48,787 INFO  [Log] Step 7. Verify that the confirm message displays after archiving article 
 2019-12-23 09:31:48,804 INFO  [Log] Step 8. Search archived contact by DropDown list 
 2019-12-23 09:31:49,795 INFO  [Log] Step 9. Verify that archived contact displays in archived table 
+2019-12-23 13:54:46,866 INFO  [Log] Step 1. Log in 
+2019-12-23 13:54:49,038 INFO  [Log] User can log in with valid account 
+2019-12-23 13:54:49,038 INFO  [Log] Step 2. Go to Article page 
+2019-12-23 13:54:51,144 INFO  [Log] Step 3. Click New button 
+2019-12-23 13:54:53,120 INFO  [Log] Step 4. Fill information in new article page 
+2019-12-23 13:54:57,931 INFO  [Log] Step 5. Verify the article is saved successfully  
+2019-12-23 13:54:58,083 INFO  [Log] Step 6. Select article to edit 
+2019-12-23 13:54:58,669 INFO  [Log] Step 7. Click on 'Edit' icon of the top right toolbar 
+2019-12-23 13:55:00,579 INFO  [Log] Step 8. Edit article 
+2019-12-23 13:55:05,749 INFO  [Log] Step 9. Verify the article is edited successfully  
+2019-12-23 16:05:55,877 INFO  [Log] Step 1. Log in 
+2019-12-23 16:05:57,898 INFO  [Log] User can log in with valid account 
+2019-12-23 16:05:57,899 INFO  [Log] Step 2. Go to Article page 
+2019-12-23 16:05:59,872 INFO  [Log] Step 3. Click New button 
+2019-12-23 16:06:01,675 INFO  [Log] Step 4. Fill information in new article page 
+2019-12-23 16:06:06,297 INFO  [Log] Step 5. Verify the article is saved successfully  
+2019-12-23 16:06:06,465 INFO  [Log] Step 6. Select article to edit 
+2019-12-23 16:06:07,078 INFO  [Log] Step 7. Click on 'Edit' icon of the top right toolbar 
+2019-12-23 16:06:09,236 INFO  [Log] Step 8. Edit article 
+2019-12-23 16:06:14,364 INFO  [Log] Step 9. Verify the article is edited successfully  
+2019-12-23 16:06:32,777 INFO  [Log] Step 1. Log in 
+2019-12-23 16:06:34,850 INFO  [Log] User can log in with valid account 
+2019-12-23 16:06:34,851 INFO  [Log] Step 2. Go to Article page 
+2019-12-23 16:06:36,948 INFO  [Log] Step 3. Click New button 
+2019-12-23 16:06:38,727 INFO  [Log] Step 4. Fill information in new article page 
+2019-12-23 16:06:43,238 INFO  [Log] Step 5. Verify the article is saved successfully  
+2019-12-23 16:06:43,391 INFO  [Log] Step 6. Select article to archive 
+2019-12-23 16:06:44,043 INFO  [Log] Step 7. Click on 'Archive' icon of the top right toolbar 
+2019-12-23 16:06:45,633 INFO  [Log] Step 8. Verify that the confirm message displays after archiving article 
+2019-12-23 16:06:45,710 INFO  [Log] Step 9. Search archived article by DropDown list 
+2019-12-23 16:06:49,943 INFO  [Log] Step 10. Verify that archived article displays in archived table 
+2019-12-23 16:07:12,435 INFO  [Log] Step 1. Log in 
+2019-12-23 16:07:14,545 INFO  [Log] User can log in with valid account 
+2019-12-23 16:07:14,546 INFO  [Log] Step 2. Go to Article page 
+2019-12-23 16:07:16,568 INFO  [Log] Step 3. Click on 'Help' icon of the top right toolbar 
+2019-12-23 16:07:18,519 INFO  [Log] Step 4. Verify the article's help window is displayed 
+2019-12-23 16:07:53,938 INFO  [Log] Step 1. Login with valid account 
+2019-12-23 16:07:55,983 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-23 16:07:57,908 INFO  [Log] Step 3. Click on 'New' icon of the top right toolbar  
+2019-12-23 16:07:59,672 INFO  [Log] Step 4. Fill information into Name, Category, Status field 
+2019-12-23 16:08:05,655 INFO  [Log] VP. Verify the contact is saved successfully 
+2019-12-23 16:08:38,709 INFO  [Log] Step 1. Login with valid account 
+2019-12-23 16:08:40,718 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-23 16:08:42,574 INFO  [Log] Step 3. Click on 'New' icon of the top right toolbar  
+2019-12-23 16:08:44,319 INFO  [Log] Step 4. Fill information into Name, Category, Status field 
+2019-12-23 16:08:49,611 INFO  [Log] VP. Verify the contact is saved successfully 
+2019-12-23 16:08:49,775 INFO  [Log] Step 5. Check on the recently added contact's checkbox 
+2019-12-23 16:08:50,376 INFO  [Log] Step 6. Click on 'Archived' icon of the top right toolbar 
+2019-12-23 16:08:51,950 INFO  [Log] Step 7. Verify that the confirm message displays after archiving article 
+2019-12-23 16:08:52,019 INFO  [Log] Step 8. Search archived contact by DropDown list 
+2019-12-23 16:08:55,631 INFO  [Log] Step 9. Verify that archived contact displays in archived table 
+2019-12-23 16:10:04,776 INFO  [Log] Step 1. Login with valid account 
+2019-12-23 16:10:06,792 INFO  [Log] Step 2. Go to Article page  
+2019-12-23 16:10:08,861 INFO  [Log] Step 3. Click on 'New' icon of the top right toolbar 
+2019-12-23 16:10:10,606 INFO  [Log] Step 4. Fill "Add new article" form  
+2019-12-23 16:10:16,933 INFO  [Log] VP. Verify the article is saved successfully  
+2019-12-23 16:10:17,086 INFO  [Log] Step 5. Check on the recently added article's checkbox 
+2019-12-23 16:10:17,694 INFO  [Log] Step 6. Click on 'Trash' icon of the top right toolbar 
+2019-12-23 16:10:19,437 INFO  [Log] VP. Verify the confirm message is displayed 
+2019-12-23 16:10:19,506 INFO  [Log] Step 7. Select 'Trash' item of 'Status' dropdown list 
+2019-12-23 16:10:23,849 INFO  [Log] VP. Verify the deleted article is displayed on the table grid 
+2019-12-24 09:13:32,579 INFO  [Log] Step 1. Login with valid account 
+2019-12-24 09:13:34,930 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-24 09:13:37,037 INFO  [Log] Step 3. Click on 'New' icon of the top right toolbar  
+2019-12-24 09:13:39,593 INFO  [Log] Step 4. Fill information into Name, Category, Status field 
+2019-12-24 09:13:45,128 INFO  [Log] VP. Verify the contact is saved successfully 
+2019-12-24 09:13:45,312 INFO  [Log] Step 5. Check on the recently added contact's checkbox 
+2019-12-24 09:13:45,974 INFO  [Log] Step 6. Click on 'Archived' icon of the top right toolbar 
+2019-12-24 09:13:47,473 INFO  [Log] Step 7. Verify that the confirm message displays after archiving article 
+2019-12-24 09:13:47,543 INFO  [Log] Step 8. Search archived contact by DropDown list 
+2019-12-24 09:13:51,416 INFO  [Log] Step 9. Verify that archived contact displays in archived table 
+2019-12-24 09:16:58,570 INFO  [Log] Step 1. Login with valid account 
+2019-12-24 09:16:59,527 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-24 09:17:00,358 INFO  [Log] Step 3. Click Help button on the toolbar 
+2019-12-24 09:17:00,502 INFO  [Log] Step 4. Verify the article's help window is displayed 
+2019-12-24 09:17:42,676 INFO  [Log] Step 1. Login with valid account 
+2019-12-24 09:17:44,700 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-24 09:17:46,521 INFO  [Log] Step 3. Click Help button on the toolbar 
+2019-12-24 09:17:48,314 INFO  [Log] Step 4. Verify the article's help window is displayed 
+2019-12-24 09:18:17,206 INFO  [Log] Step 1. Login with valid account 
+2019-12-24 09:18:18,292 INFO  [Log] Step 2. Go to Contacts page 
+2019-12-24 09:18:19,038 INFO  [Log] Step 3. Click Help button on the toolbar 
+2019-12-24 09:18:19,396 INFO  [Log] Step 4. Verify the article's help window is displayed 

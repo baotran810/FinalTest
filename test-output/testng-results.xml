@@ -2,27 +2,27 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="15703" started-at="2019-12-23T02:31:34Z" finished-at="2019-12-23T02:31:49Z">
+  <suite name="Suite" duration-ms="14720" started-at="2019-12-24T02:18:05Z" finished-at="2019-12-24T02:18:20Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="15703" started-at="2019-12-23T02:31:34Z" finished-at="2019-12-23T02:31:49Z">
-      <class name="joomla.testcase.TC_JOOMLA_CONTACTS_005">
-        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_005@38203]" name="beforeClass" is-config="true" duration-ms="10285" started-at="2019-12-23T09:31:34Z" finished-at="2019-12-23T09:31:44Z">
+    <test name="Test" duration-ms="14720" started-at="2019-12-24T02:18:05Z" finished-at="2019-12-24T02:18:20Z">
+      <class name="joomla.testcase.TC_JOOMLA_CONTACTS_008">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_008@19f99ea]" name="beforeClass" is-config="true" duration-ms="11479" started-at="2019-12-24T09:18:05Z" finished-at="2019-12-24T09:18:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="f()[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_005@38203]" name="f" duration-ms="5417" started-at="2019-12-23T09:31:44Z" description="TC_JOOMLA_CONTACTS_005 - Verify user can move a contact to the archive" finished-at="2019-12-23T09:31:49Z">
+        <test-method status="PASS" signature="testTC008()[pri:0, instance:joomla.testcase.TC_JOOMLA_CONTACTS_008@19f99ea]" name="testTC008" duration-ms="3231" started-at="2019-12-24T09:18:17Z" description="TC_JOOMLA_CONTACTS_008 - Verify user can access contact&#039;s help section" finished-at="2019-12-24T09:18:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-      </class> <!-- joomla.testcase.TC_JOOMLA_CONTACTS_005 -->
+        </test-method> <!-- testTC008 -->
+      </class> <!-- joomla.testcase.TC_JOOMLA_CONTACTS_008 -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
