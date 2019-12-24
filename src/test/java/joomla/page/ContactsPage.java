@@ -85,7 +85,7 @@ public class ContactsPage extends GeneralPage {
 
 	public void selectStatusDropdownList(String status)
 			throws InterruptedException {
-		Thread.sleep(10);
+		Thread.sleep(60);
 		Constant.WEBDRIVER.findElement(listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
 				.implicitlyWait(60, TimeUnit.SECONDS);

@@ -18,7 +18,7 @@ public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 	ContactsPage contact = new ContactsPage();
 	AddNewContactsPage newContact = new AddNewContactsPage();
 
-	String nameContact = Utilities.randomName();
+	String nameContact = Utilities.randomTitle();
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_007 - Verify user can move a contact to trash section")
