@@ -27,7 +27,7 @@ public class TestHelper {
 
 	@AfterClass
 	public void afterClass() {
-		Log.info("Final");
+		Log.info("Exit browser.");
 		Constant.WEBDRIVER.quit();
 	}
 

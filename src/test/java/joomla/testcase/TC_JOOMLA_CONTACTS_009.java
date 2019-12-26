@@ -22,7 +22,7 @@ public class TC_JOOMLA_CONTACTS_009 extends TestHelper {
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_009 - Verify user can search for contacts using the filter text field")
-	public void testTC009() {
+	public void testTC009() throws InterruptedException {
 
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
@@ -43,10 +43,13 @@ public class TC_JOOMLA_CONTACTS_009 extends TestHelper {
 				"Contact exists.");
 
 		Log.info("Step 5. Search contacts using the filter text field");
-		contact.textSearch(contactName);
+		contact.searchText(contactName);
 
 		Log.info("VP. Verify the titles of displayed contacts are partially matched with the entered keyword");
 		Assert.assertTrue(contact.doesContactExistBySearch(contactName),
 				"Contact exists.");
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 }

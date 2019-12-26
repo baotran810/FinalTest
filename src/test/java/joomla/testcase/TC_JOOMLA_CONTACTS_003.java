@@ -22,7 +22,7 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_003-Verify user can publish an unpublished contact")
-	public void testTC003() {
+	public void testTC003() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -52,6 +52,9 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 				"The icon of the selected item is showed as 'Publish'.");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact published"),
 				"Message displays.");
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 
 }

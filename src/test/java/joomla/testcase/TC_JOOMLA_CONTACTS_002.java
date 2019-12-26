@@ -26,7 +26,7 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 	String newCategory = "- Park Site";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_002-Verify user can edit a contact")
-	public void testTC002() {
+	public void testTC002() throws InterruptedException {
 
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
@@ -60,5 +60,8 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 				"Message displays.");
 		Assert.assertTrue(contact.doesContactExists(newNameContact),
 				"Contact exists.");
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 }

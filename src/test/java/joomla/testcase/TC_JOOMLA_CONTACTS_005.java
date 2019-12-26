@@ -57,5 +57,8 @@ public class TC_JOOMLA_CONTACTS_005 extends TestHelper{
 		
 		Log.info("Step 9. Verify that archived contact displays in archived table");
 		Assert.assertTrue(contact.doesContactExists(nameContact), "Contact exists.");
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 }

@@ -16,21 +16,31 @@ public class ArticlePage {
 	private String checkboxXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
 	private String btnXpath = "//div[@id='toolbar']//div[@id='toolbar-%s']/button";
 	private String statusXpath = "//table[@id='articleList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
+	private String itemStatus = "//select[@id='filter_published']/..//li[text()='%s']";
+
 	private By btnClear = By
 			.cssSelector("button[class$='js-stools-btn-clear']");
-
 	private By btnSearchTool = By
 			.cssSelector("button[class$='js-stools-btn-filter']");
 	private By divFilter = By
 			.cssSelector("div[class^='js-stools-container-filters']");
 	private By listStatus = By
 			.xpath("//select[@id='filter_published']/..//span[text()='- Select Status -']");
-
-	private String itemStatus = "//select[@id='filter_published']/..//li[text()='%s']";
+	private By tagThead = By.xpath("//table[@id='articleList']/thead");
+	private By checkboxAll = By
+			.xpath("//table[@id='articleList']/thead//input[@name='checkall-toggle']");
 
 	private WebElement getCheckbox(String articleName) {
 		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
 				checkboxXpath, articleName)));
+	}
+
+	private WebElement getBtnSearchTool() {
+		return Constant.WEBDRIVER.findElement(btnSearchTool);
+	}
+
+	private WebElement getBtnClear() {
+		return Constant.WEBDRIVER.findElement(btnClear);
 	}
 
 	public boolean doesConfirmMessageDisplays(String message) {
@@ -45,6 +55,20 @@ public class ArticlePage {
 		return exists;
 	}
 
+	public boolean doesStatusExists(String articleName, String status) {
+		boolean exists = Constant.WEBDRIVER.findElements(
+				By.xpath(String.format(statusXpath, articleName, status)))
+				.size() == 1;
+		return exists;
+	}
+
+	public boolean doesIconDisplay(String articleName, String status) {
+		String xpathSt = String.format(statusXpath, articleName, status);
+		Constant.WEBDRIVER.manage().timeouts()
+				.implicitlyWait(3, TimeUnit.SECONDS);
+		return Constant.WEBDRIVER.findElements(By.xpath(xpathSt)).size() == 1;
+	}
+
 	public void selectCheckbox(String articleName) {
 		if (!this.getCheckbox(articleName).isSelected()) {
 			this.getCheckbox(articleName).click();
@@ -56,25 +80,22 @@ public class ArticlePage {
 				By.xpath(String.format(btnXpath, buttonName))).click();
 	}
 
-	public boolean doesStatusExists(String articleName, String status) {
-		boolean exists = Constant.WEBDRIVER.findElements(
-				By.xpath(String.format(statusXpath, articleName, status)))
-				.size() == 1;
-		return exists;
-	}
-
 	public void clickArticleName(String articleName) {
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(articleXpath, articleName))).click();
 	}
 
-	public void clickBtnSearchTool() {
-		Constant.WEBDRIVER.findElement(btnSearchTool).click();
-	}
-
 	public void waitForDivFilter(int seconds) {
 		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(divFilter));
+	}
+
+	public void clickBtnSearchTool() {
+		this.getBtnSearchTool().click();
+	}
+
+	public void clickBtnClear() {
+		this.getBtnClear().click();
 	}
 
 	public void selectStatusDropdownList(String status)
@@ -87,15 +108,40 @@ public class ArticlePage {
 				By.xpath(String.format(itemStatus, status))).click();
 	}
 
-	public void clickBtnClear() {
-		Constant.WEBDRIVER.findElement(btnClear).click();
-	}
+	public void cleanData() throws InterruptedException {
+		if (Constant.WEBDRIVER.findElements(tagThead).size() == 1) {
+			Constant.WEBDRIVER.findElement(checkboxAll).click();
+			this.clickButton("trash");
+		}
 
-	public boolean doesIconDisplay(String articleName, String status) {
-		String xpathSt = String.format(statusXpath, articleName, status);
+		this.getBtnClear().click();
+		this.getBtnSearchTool().click();
+		Thread.sleep(100);
+		Constant.WEBDRIVER.findElement(listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
-				.implicitlyWait(3, TimeUnit.SECONDS);
-		return Constant.WEBDRIVER.findElements(By.xpath(xpathSt)).size() == 1;
+				.implicitlyWait(60, TimeUnit.SECONDS);
+		Constant.WEBDRIVER.findElement(
+				By.xpath(String.format(itemStatus, "Archived"))).click();
+
+		while (Constant.WEBDRIVER.findElements(By.xpath("//div[@class='alert alert-no-items']")).size() == 0) {
+			Constant.WEBDRIVER.findElement(checkboxAll).click();
+			this.clickButton("trash");
+		}
+		this.getBtnClear().click();
+		this.getBtnSearchTool().click();
+		Thread.sleep(100);
+		Constant.WEBDRIVER.findElement(listStatus).click();
+		Constant.WEBDRIVER.manage().timeouts()
+				.implicitlyWait(60, TimeUnit.SECONDS);
+		Constant.WEBDRIVER.findElement(
+				By.xpath(String.format(itemStatus, "Trashed"))).click();
+
+		if (Constant.WEBDRIVER.findElements(tagThead).size() == 1) {
+			Constant.WEBDRIVER.findElement(checkboxAll).click();
+			this.clickButton("delete");
+		}
+
+		Constant.WEBDRIVER.switchTo().alert().accept();
 	}
 
 }

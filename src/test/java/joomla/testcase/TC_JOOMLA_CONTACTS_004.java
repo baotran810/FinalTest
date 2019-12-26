@@ -7,7 +7,6 @@ import joomla.page.AddNewContactsPage;
 import joomla.page.ContactsPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +21,7 @@ public class TC_JOOMLA_CONTACTS_004 extends TestHelper {
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_004 - Verify user can unpublish a published contact")
-	public void testTC004() {
+	public void testTC004() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 		
@@ -49,6 +48,9 @@ public class TC_JOOMLA_CONTACTS_004 extends TestHelper {
 		Assert.assertTrue(contact.doesStatusExists(nameContact, "unpublish"),
 				"The icon of the selected item is showed as 'Unpublish'.");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact unpublished"), "Message displays.");
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 
 }
