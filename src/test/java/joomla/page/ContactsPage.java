@@ -156,6 +156,7 @@ public class ContactsPage extends GeneralPage {
 		}
 
 		Constant.WEBDRIVER.switchTo().alert().accept();
+		Thread.sleep(20);
 	}
 
 }

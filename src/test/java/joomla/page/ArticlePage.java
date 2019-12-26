@@ -143,6 +143,7 @@ public class ArticlePage {
 		}
 
 		Constant.WEBDRIVER.switchTo().alert().accept();
+		Thread.sleep(20);
 	}
 
 }
