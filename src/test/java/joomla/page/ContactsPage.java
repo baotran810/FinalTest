@@ -18,31 +18,31 @@ public class ContactsPage extends GeneralPage {
 	private String statusXpath = "//table[@id='contactList']//tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
 	private String itemStatus = "//select[@id='filter_published']/..//li[text()='%s']";
 
-	private By btnClear = By
+	private By _btnClear = By
 			.cssSelector("button[class$='js-stools-btn-clear']");
-	private By btnSearchTool = By
+	private By _btnSearchTool = By
 			.cssSelector("button[class$='js-stools-btn-filter']");
 	private By divFilter = By
 			.cssSelector("div[class^='js-stools-container-filters']");
-	private By listStatus = By
+	private By _listStatus = By
 			.xpath("//select[@id='filter_published']/..//span[text()='- Select Status -']");
-	private By txtSearch = By.xpath("//input[@id='filter_search']");
-	private By iconSeach = By.cssSelector("button[class$='hasTooltip']");
-	private By tagThead = By.xpath("//table[@id='contactList']/thead");
-	private By checkboxAll = By
+	private By _txtSearch = By.xpath("//input[@id='filter_search']");
+	private By _iconSeach = By.cssSelector("button[class$='hasTooltip']");
+	private By _tagThead = By.xpath("//table[@id='contactList']/thead");
+	private By _checkboxAll = By
 			.xpath("//table[@id='contactList']/thead//input[@name='checkall-toggle']");
 
-	private WebElement getCheckbox(String nameContact) {
+	private WebElement getCheckBox(String nameContact) {
 		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
 				checkboxXpath, nameContact)));
 	}
 
 	private WebElement getBtnSearchTool() {
-		return Constant.WEBDRIVER.findElement(btnSearchTool);
+		return Constant.WEBDRIVER.findElement(_btnSearchTool);
 	}
 
 	private WebElement getBtnClear() {
-		return Constant.WEBDRIVER.findElement(btnClear);
+		return Constant.WEBDRIVER.findElement(_btnClear);
 	}
 
 	public boolean doesConfirmMsgDisplays(String message) {
@@ -82,9 +82,9 @@ public class ContactsPage extends GeneralPage {
 				By.xpath(String.format(btnXpath, nameBtn))).click();
 	}
 
-	public void selectCheckbox(String nameContact) {
-		if (!this.getCheckbox(nameContact).isSelected()) {
-			this.getCheckbox(nameContact).click();
+	public void selectCheckBox(String nameContact) {
+		if (!this.getCheckBox(nameContact).isSelected()) {
+			this.getCheckBox(nameContact).click();
 		}
 	}
 
@@ -109,7 +109,7 @@ public class ContactsPage extends GeneralPage {
 	public void selectStatusDropdownList(String status)
 			throws InterruptedException {
 		Thread.sleep(60);
-		Constant.WEBDRIVER.findElement(listStatus).click();
+		Constant.WEBDRIVER.findElement(_listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
 				.implicitlyWait(60, TimeUnit.SECONDS);
 		Constant.WEBDRIVER.findElement(
@@ -117,40 +117,41 @@ public class ContactsPage extends GeneralPage {
 	}
 
 	public void searchText(String contactName) {
-		Constant.WEBDRIVER.findElement(txtSearch).sendKeys(contactName);
-		Constant.WEBDRIVER.findElement(iconSeach).click();
+		Constant.WEBDRIVER.findElement(_txtSearch).sendKeys(contactName);
+		Constant.WEBDRIVER.findElement(_iconSeach).click();
 	}
 
 	public void cleanData() throws InterruptedException {
-		if (Constant.WEBDRIVER.findElements(tagThead).size() == 1) {
-			Constant.WEBDRIVER.findElement(checkboxAll).click();
+		if (Constant.WEBDRIVER.findElements(_tagThead).size() == 1) {
+			Constant.WEBDRIVER.findElement(_checkboxAll).click();
 			this.clickButton("trash");
 		}
 
 		this.getBtnClear().click();
 		this.getBtnSearchTool().click();
 		Thread.sleep(100);
-		Constant.WEBDRIVER.findElement(listStatus).click();
+		Constant.WEBDRIVER.findElement(_listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
 				.implicitlyWait(60, TimeUnit.SECONDS);
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(itemStatus, "Archived"))).click();
 
-		while (Constant.WEBDRIVER.findElements(By.xpath("//div[@class='alert alert-no-items']")).size() == 0) {
-			Constant.WEBDRIVER.findElement(checkboxAll).click();
+		while (Constant.WEBDRIVER.findElements(
+				By.xpath("//div[@class='alert alert-no-items']")).size() == 0) {
+			Constant.WEBDRIVER.findElement(_checkboxAll).click();
 			this.clickButton("trash");
 		}
 		this.getBtnClear().click();
 		this.getBtnSearchTool().click();
 		Thread.sleep(100);
-		Constant.WEBDRIVER.findElement(listStatus).click();
+		Constant.WEBDRIVER.findElement(_listStatus).click();
 		Constant.WEBDRIVER.manage().timeouts()
 				.implicitlyWait(60, TimeUnit.SECONDS);
 		Constant.WEBDRIVER.findElement(
 				By.xpath(String.format(itemStatus, "Trashed"))).click();
 
-		if (Constant.WEBDRIVER.findElements(tagThead).size() == 1) {
-			Constant.WEBDRIVER.findElement(checkboxAll).click();
+		if (Constant.WEBDRIVER.findElements(_tagThead).size() == 1) {
+			Constant.WEBDRIVER.findElement(_checkboxAll).click();
 			this.clickButton("delete");
 		}
 

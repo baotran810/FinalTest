@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
-  <test name="Test">
-  		<parameter name="browser" value="chrome" />
-    <classes>
-      <class name="joomla.testcase.TC_JOOMLA_CONTACTS_005"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="FireFoxTest">
+	<test name="Test">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_005" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="FireFoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_005" />
