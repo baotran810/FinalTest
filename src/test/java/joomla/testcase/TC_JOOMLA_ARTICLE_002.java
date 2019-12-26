@@ -25,7 +25,7 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 	String newArticleContent = Utilities.randomContent();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_002 - Verify user can edit an article")
-	public void testTC002() {
+	public void testTC002() throws InterruptedException {
 		Log.info("Step 1. Log in");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 		Log.info("User can log in with valid account");
@@ -55,5 +55,8 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 		Log.info("Step 9. Verify the article is edited successfully ");
 		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."), "Message displays.");
 		Assert.assertTrue(article.doesArticleExists(newArticleName), "Article exists.");
+		
+		Log.info("Final. Clean data");
+		article.cleanData();
 	}
 }

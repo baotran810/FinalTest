@@ -22,7 +22,7 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_006 - Verify user can check in a contact")
-	public void testTC006() {
+	public void testTC006() throws InterruptedException {
 
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
@@ -60,6 +60,8 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 		// Constant.WEBDRIVER.navigate().back();
 		Boolean isExist = contact.doesIconDisplay(contactName, "checkedout");
 		Assert.assertTrue(isExist, "Set check-out status successfully.");
-
+		
+		Log.info("Final. Clean data");
+		contact.cleanData();
 	}
 }

@@ -60,5 +60,8 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
 		
 		Log.info("Step 10. Verify that archived article displays in archived table");
 		Assert.assertTrue(article.doesArticleExists(articleName), "Article exists.");
+		
+		Log.info("Final. Clean data");
+		article.cleanData();
 	}
 }

@@ -23,7 +23,7 @@ public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 	String articleContent = Utilities.randomContent();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_006 - Verify user can check in an article")
-	public void testTC006() {
+	public void testTC006() throws InterruptedException {
 
 		Log.info("Step 2. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
@@ -54,13 +54,13 @@ public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 				article.doesConfirmMessageDisplays("1 article checked in."),
 				"Message displays.");
 		article.clickArticleName(articleName);
-
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
 		js.executeScript("history.go(-1);");
 
-		// Constant.WEBDRIVER.navigate().back();
 		Boolean isExist = article.doesIconDisplay(articleName, "checkedout");
 		Assert.assertTrue(isExist, "Set check-out status successfully.");
-
+		
+		Log.info("Final. Clean data");
+		article.cleanData();
 	}
 }

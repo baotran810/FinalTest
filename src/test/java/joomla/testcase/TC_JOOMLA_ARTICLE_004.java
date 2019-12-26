@@ -22,7 +22,7 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
 	String articleContent = Utilities.randomContent();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_004 - Verify user can unpublish a published article")
-	public void testTC004() {
+	public void testTC004() throws InterruptedException {
 		Log.info("Step 1. Login with valid account");
 		logIn.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -53,6 +53,9 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
 				"Message displays.");
 		Assert.assertTrue(article.doesStatusExists(articleName, "unpublish"),
 				"Set unpublish status successfully.");
+		
+		Log.info("Final. Clean data");
+		article.cleanData();
 	}
 
 }
