@@ -43,7 +43,7 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 				"Contact exists.");
 
 		Log.info("Step 5. Check on the recently added contact's checkbox");
-		contact.selectCheckbox(contactName);
+		contact.selectCheckBox(contactName);
 
 		Log.info("Step 6. Click on 'Check In' icon of the top right toolbar");
 		contact.clickButton("checkin");
@@ -60,7 +60,7 @@ public class TC_JOOMLA_CONTACTS_006 extends TestHelper {
 		// Constant.WEBDRIVER.navigate().back();
 		Boolean isExist = contact.doesIconDisplay(contactName, "checkedout");
 		Assert.assertTrue(isExist, "Set check-out status successfully.");
-		
+
 		Log.info("Final. Clean data");
 		contact.cleanData();
 	}

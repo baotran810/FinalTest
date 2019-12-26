@@ -1,8 +1,5 @@
 package joomla.testcase;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import joomla.common.Log;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
@@ -10,6 +7,9 @@ import joomla.page.AddNewContactsPage;
 import joomla.page.ContactsPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 
@@ -42,7 +42,7 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 				"Contact exists.");
 
 		Log.info("Step 5. Check on the recently added contact's checkbox");
-		contact.selectCheckbox(nameContact);
+		contact.selectCheckBox(nameContact);
 
 		Log.info("Step 6. Click on 'Publish' icon of the top right toolbar");
 		contact.clickButton("publish");
@@ -52,7 +52,7 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 				"The icon of the selected item is showed as 'Publish'.");
 		Assert.assertTrue(contact.doesConfirmMsgDisplays("contact published"),
 				"Message displays.");
-		
+
 		Log.info("Final. Clean data");
 		contact.cleanData();
 	}

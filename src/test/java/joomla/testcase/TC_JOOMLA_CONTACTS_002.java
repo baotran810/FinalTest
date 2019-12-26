@@ -47,7 +47,7 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 				"Contact exists.");
 
 		Log.info("Step 5. Select article to edit");
-		contact.selectCheckbox(nameContact);
+		contact.selectCheckBox(nameContact);
 
 		Log.info("Step 6. Click on 'Edit' icon of the top right toolbar");
 		contact.clickButton("edit");
@@ -60,7 +60,7 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 				"Message displays.");
 		Assert.assertTrue(contact.doesContactExists(newNameContact),
 				"Contact exists.");
-		
+
 		Log.info("Final. Clean data");
 		contact.cleanData();
 	}

@@ -6,4 +6,16 @@
 			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_008" />
 		</classes>
 	</test> <!-- Test -->
+	<test name="FirefoxTest">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_008" />
+		</classes>
+	</test>
+	<test name="IETest">
+		<parameter name="browser" value="ie" />
+		<classes>
+			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_008" />
+		</classes>
+	</test>
 </suite> <!-- Suite -->
