@@ -3,7 +3,7 @@ package joomla.testcase;
 import joomla.common.Log;
 import joomla.constant.Constant;
 import joomla.page.ArticlePage;
-import joomla.page.HelpPageOfArticle;
+import joomla.page.ArticleHelpPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
@@ -14,6 +14,7 @@ public class TC_JOOMLA_ARTICLE_008 extends TestHelper {
 
 	LoginPage logInPage = new LoginPage();
 	HomePage homePage = new HomePage();
+
 	ArticlePage articlePage = new ArticlePage();
 	HelpPageOfArticle helpPage = new HelpPageOfArticle();
 
