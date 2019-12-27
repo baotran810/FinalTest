@@ -46,22 +46,19 @@ public class ContactsPage extends GeneralPage {
 	}
 
 	public boolean doesConfirmMsgDisplay(String message) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
-		return exists;
 	}
 
 	public boolean doesContactExists(String nameContact) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(contactXpath, nameContact))).size() == 1;
-		return exists;
 	}
 
 	public boolean doesStatusExists(String nameContact, String status) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(statusXpath, nameContact, status)))
 				.size() == 1;
-		return exists;
 	}
 
 	public boolean doesIconDisplay(String contactName, String status) {
@@ -72,9 +69,8 @@ public class ContactsPage extends GeneralPage {
 	}
 
 	public boolean doesContactExistBySearch(String nameContact) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(contactXpath, nameContact))).size() != 0;
-		return exists;
 	}
 
 	public void clickButton(String nameBtn) {

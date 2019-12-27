@@ -44,22 +44,19 @@ public class ArticlePage {
 	}
 
 	public boolean doesConfirmMessageDisplay(String message) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
-		return exists;
 	}
 
 	public boolean doesArticleExists(String articleName) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(articleXpath, articleName))).size() == 1;
-		return exists;
 	}
 
 	public boolean doesStatusExists(String articleName, String status) {
-		boolean exists = Constant.WEBDRIVER.findElements(
+		return Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(statusXpath, articleName, status)))
 				.size() == 1;
-		return exists;
 	}
 
 	public boolean doesIconDisplay(String articleName, String status) {
