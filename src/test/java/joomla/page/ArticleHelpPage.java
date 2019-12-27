@@ -4,29 +4,30 @@ import java.util.Set;
 
 import joomla.constant.Constant;
 
-public class HelpPageOfArticle {
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ArticleHelpPage {
 
 	public boolean doesHelpPageDisplays() throws InterruptedException {
-		//get current window handle
+		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, 20);
+		// get current window handle
 		String parentWinHandle = Constant.WEBDRIVER.getWindowHandle();
-		//get the window handles of all the open windows in a set
+		// get the window handles of all the open windows in a set
 		Set<String> winHandles = Constant.WEBDRIVER.getWindowHandles();
-		boolean exists = true;
-		//loop through all handles
+		// loop through all handles
 		for (String handle : winHandles) {
 			if (!handle.equals(parentWinHandle)) {
 				Constant.WEBDRIVER.switchTo().window(handle);
-				Thread.sleep(1000);
-				System.out.println("Title of the new window: "
-						+ Constant.WEBDRIVER.getTitle());
+				wait.until(ExpectedConditions.titleIs(Constant.HELPAGE_TITLE));
 				String title = Constant.WEBDRIVER.getTitle();
-				if (title.equals("Joomla! Help Screens"))
-					exists = true;
+				if (title.equals(Constant.HELPAGE_TITLE))
+					return true;
 				else
-					exists = false;
+					return false;
 			}
 		}
-		return exists;
+		return false;
 	}
 
 }
