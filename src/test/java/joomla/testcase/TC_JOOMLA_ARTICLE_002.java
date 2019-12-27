@@ -21,7 +21,7 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
 	String category = "- Park Site";
-	String newArticleName = Utilities.randomName();
+	String newArticleName = Utilities.randomTitle();
 	String newArticleContent = Utilities.randomContent();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_002 - Verify user can edit an article")
