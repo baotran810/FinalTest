@@ -9,7 +9,7 @@ public class Utilities {
 	}
 
 	public static String randomTitle() {
-		return Constant.FAKER.book().title();
+		return Constant.FAKER.lorem().sentence();
 	}
 
 	public static String randomName() {
