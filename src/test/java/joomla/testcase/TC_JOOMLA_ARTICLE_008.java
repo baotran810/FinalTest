@@ -16,7 +16,7 @@ public class TC_JOOMLA_ARTICLE_008 extends TestHelper {
 	HomePage homePage = new HomePage();
 
 	ArticlePage articlePage = new ArticlePage();
-	HelpPageOfArticle helpPage = new HelpPageOfArticle();
+	ArticleHelpPage articleHelpPage = new ArticleHelpPage();
 
 	@Test(description = "TC_JOOMLA_ARTICLE_008 - Verify that user can access article's help section")
 	public void testTC008() throws InterruptedException {
@@ -31,6 +31,6 @@ public class TC_JOOMLA_ARTICLE_008 extends TestHelper {
 		articlePage.clickButton("help");
 
 		Log.info("Step 4. Verify the article's help window is displayed");
-		Assert.assertTrue(helpPage.doesHelpPageDisplays(), "Window displays");
+		Assert.assertTrue(articleHelpPage.doesHelpPageDisplays(), "Window displays");
 	}
 }
