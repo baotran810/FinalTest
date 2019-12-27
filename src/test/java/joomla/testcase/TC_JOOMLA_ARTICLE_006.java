@@ -3,7 +3,7 @@ package joomla.testcase;
 import joomla.common.Log;
 import joomla.common.Utilities;
 import joomla.constant.Constant;
-import joomla.page.AddNewArticle;
+import joomla.page.AddNewArticlePage;
 import joomla.page.ArticlePage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
@@ -14,10 +14,10 @@ import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 
-	LoginPage logIn = new LoginPage();
+	LoginPage logInPage = new LoginPage();
 	HomePage homePage = new HomePage();
-	ArticlePage article = new ArticlePage();
-	AddNewArticle addNewArticle = new AddNewArticle();
+	ArticlePage articlePage = new ArticlePage();
+	AddNewArticlePage addNewArticlePage = new AddNewArticlePage();
 
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
@@ -26,41 +26,41 @@ public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
 	public void testTC006() throws InterruptedException {
 
 		Log.info("Step 2. Login with valid account");
-		logIn.login(Constant.USERNAME, Constant.PASSWORD);
+		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
 		Log.info("Step 3. Go to Article page ");
 		homePage.gotoArticle();
 
 		Log.info("Step 4. Click on 'New' icon of the top right toolbar");
-		article.clickButton("new");
+		articlePage.clickButton("new");
 
 		Log.info("Step 5. Fill \"Add new article\" form ");
-		addNewArticle.createArticle(articleName, articleContent, "Published");
+		addNewArticlePage.createArticle(articleName, articleContent, "Published");
 
 		Log.info("Step 6. Verify the article is saved successfully ");
-		Assert.assertTrue(article.doesConfirmMessageDisplays("Article saved."),
+		Assert.assertTrue(articlePage.doesConfirmMessageDisplay("Article saved."),
 				"Message displays.");
-		Assert.assertTrue(article.doesArticleExists(articleName),
+		Assert.assertTrue(articlePage.doesArticleExists(articleName),
 				"Article exists.");
 
 		Log.info("Step 7. Check on the recently added article's checkbox");
-		article.selectCheckbox(articleName);
+		articlePage.selectCheckBox(articleName);
 
 		Log.info("Step 8. Click on 'Check In' icon of the top right toolbar");
-		article.clickButton("checkin");
+		articlePage.clickButton("checkin");
 
 		Log.info("Step 9. Verify the article is checked in successfully");
 		Assert.assertTrue(
-				article.doesConfirmMessageDisplays("1 article checked in."),
+				articlePage.doesConfirmMessageDisplay("1 article checked in."),
 				"Message displays.");
-		article.clickArticleName(articleName);
+		articlePage.clickArticleName(articleName);
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
 		js.executeScript("history.go(-1);");
 
-		Boolean isExist = article.doesIconDisplay(articleName, "checkedout");
+		Boolean isExist = articlePage.doesIconDisplay(articleName, "checkedout");
 		Assert.assertTrue(isExist, "Set check-out status successfully.");
 		
 		Log.info("Final. Clean data");
-		article.cleanData();
+		articlePage.cleanData();
 	}
 }

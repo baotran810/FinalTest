@@ -30,7 +30,7 @@ public class ArticlePage {
 	private By _checkboxAll = By
 			.xpath("//table[@id='articleList']/thead//input[@name='checkall-toggle']");
 
-	private WebElement getCheckbox(String articleName) {
+	private WebElement getCheckBox(String articleName) {
 		return Constant.WEBDRIVER.findElement(By.xpath(String.format(
 				checkboxXpath, articleName)));
 	}
@@ -43,7 +43,7 @@ public class ArticlePage {
 		return Constant.WEBDRIVER.findElement(_btnClear);
 	}
 
-	public boolean doesConfirmMessageDisplays(String message) {
+	public boolean doesConfirmMessageDisplay(String message) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
 		return exists;
@@ -69,9 +69,9 @@ public class ArticlePage {
 		return Constant.WEBDRIVER.findElements(By.xpath(xpathSt)).size() == 1;
 	}
 
-	public void selectCheckbox(String articleName) {
-		if (!this.getCheckbox(articleName).isSelected()) {
-			this.getCheckbox(articleName).click();
+	public void selectCheckBox(String articleName) {
+		if (!this.getCheckBox(articleName).isSelected()) {
+			this.getCheckBox(articleName).click();
 		}
 	}
 

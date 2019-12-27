@@ -45,7 +45,7 @@ public class ContactsPage extends GeneralPage {
 		return Constant.WEBDRIVER.findElement(_btnClear);
 	}
 
-	public boolean doesConfirmMsgDisplays(String message) {
+	public boolean doesConfirmMsgDisplay(String message) {
 		boolean exists = Constant.WEBDRIVER.findElements(
 				By.xpath(String.format(confirmMsg, message))).size() == 1;
 		return exists;
