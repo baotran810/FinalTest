@@ -11,5 +11,6 @@ public class Constant {
 	public static String USERNAME = "satt";
 	public static String PASSWORD = "123456";
 	public static String CATEGORY = "Sample Data-Contact";
+	public static String HELPAGE_TITLE = "Joomla! Help Screens";
 	public static Faker FAKER = new Faker();
 }
