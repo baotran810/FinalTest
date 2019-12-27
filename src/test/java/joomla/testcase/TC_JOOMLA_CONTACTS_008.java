@@ -28,7 +28,7 @@ public class TC_JOOMLA_CONTACTS_008 extends TestHelper{
 		Log.info("Step 3. Click Help button on the toolbar");
 		contactPage.clickButton("help");
 		
-		Log.info("Step 4. Verify the article's help window is displayed");
-		Assert.assertTrue(contactHelpPage.doesHelpPageDisplays(), "Window displays");
+		Log.info("VP. Verify the article's help window is displayed");
+		Assert.assertTrue(contactHelpPage.doesHelpPageDisplays(), "Help window should be displayed.");
 	}
 }

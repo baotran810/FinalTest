@@ -9,6 +9,7 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
@@ -21,8 +22,8 @@ public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 	String nameContact = Utilities.randomName();
 	String category = "Sample Data-Contact";
 
-	@Test(description = "TC_JOOMLA_CONTACTS_007 - Verify user can move a contact to trash section")
-	public void testTC007() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Login with valid account");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -37,10 +38,13 @@ public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 
 		Log.info("VP. Verify the contact is saved successfully");
 		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("Contact saved"),
-				"Message displays.");
+				"Message should be displayed.");
 		Assert.assertTrue(contactPage.doesContactExists(nameContact),
-				"Contact exists.");
+				"Contact should exist.");
+	}
 
+	@Test(description = "TC_JOOMLA_CONTACTS_007 - Verify user can move a contact to trash section")
+	public void testTC007() throws InterruptedException {
 		Log.info("Step 5. Check on the recently added contact's checkbox");
 		contactPage.selectCheckBox(nameContact);
 
@@ -48,8 +52,9 @@ public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 		contactPage.clickButton("trash");
 
 		Log.info("VP. Verify the confirm message is displayed");
-		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("contact trashed."),
-				"Message displays.");
+		Assert.assertTrue(
+				contactPage.doesConfirmMsgDisplay("contact trashed."),
+				"Message should be displayed.");
 
 		Log.info("Step 7. Select 'Trash' item of 'Status' dropdown list");
 		contactPage.clickBtnClear();
@@ -59,6 +64,7 @@ public class TC_JOOMLA_CONTACTS_007 extends TestHelper {
 
 		Log.info("VP. Verify the deleted contact is displayed on the table grid");
 		Assert.assertTrue(contactPage.doesContactExists(nameContact),
-				"Contact exists.");
+				"Contact should exist.");
 	}
+
 }

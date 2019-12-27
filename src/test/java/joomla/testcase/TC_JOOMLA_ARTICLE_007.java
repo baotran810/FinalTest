@@ -9,6 +9,7 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
@@ -21,8 +22,8 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
 
-	@Test(description="TC_JOOMLA_ARTICLE_007-Verify user can move an article to trash section")
-	public void testTC007() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Login with valid account");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -33,14 +34,19 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 		articlePage.clickButton("new");
 
 		Log.info("Step 4. Fill \"Add new article\" form ");
-		addNewArticlePage.createArticle(articleName, articleContent, "Published");
+		addNewArticlePage.createArticle(articleName, articleContent,
+				"Published");
 
 		Log.info("VP. Verify the article is saved successfully ");
-		Assert.assertTrue(articlePage.doesConfirmMessageDisplay("Article saved."),
-				"Message displays.");
+		Assert.assertTrue(
+				articlePage.doesConfirmMessageDisplay("Article saved."),
+				"Message should be displayed.");
 		Assert.assertTrue(articlePage.doesArticleExists(articleName),
-				"Article exists.");
+				"Article should exist.");
+	}
 
+	@Test(description = "TC_JOOMLA_ARTICLE_007-Verify user can move an article to trash section")
+	public void testTC007() throws InterruptedException {
 		Log.info("Step 5. Check on the recently added article's checkbox");
 		articlePage.selectCheckBox(articleName);
 
@@ -50,7 +56,7 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 		Log.info("VP. Verify the confirm message is displayed");
 		Assert.assertTrue(
 				articlePage.doesConfirmMessageDisplay("article trashed."),
-				"Message displays.");
+				"Message should be displayed.");
 
 		Log.info("Step 7. Select 'Trash' item of 'Status' dropdown list");
 		articlePage.clickBtnClear();
@@ -60,7 +66,7 @@ public class TC_JOOMLA_ARTICLE_007 extends TestHelper {
 
 		Log.info("VP. Verify the deleted article is displayed on the table grid");
 		Assert.assertTrue(articlePage.doesArticleExists(articleName),
-				"Article exists.");
+				"Article should exist.");
 	}
 
 }

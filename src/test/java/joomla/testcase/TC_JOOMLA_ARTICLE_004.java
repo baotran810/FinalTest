@@ -9,6 +9,8 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
@@ -21,8 +23,8 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
 	String articleName = Utilities.randomTitle();
 	String articleContent = Utilities.randomContent();
 
-	@Test(description = "TC_JOOMLA_ARTICLE_004 - Verify user can unpublish a published article")
-	public void testTC004() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Login with valid account");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -33,14 +35,19 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
 		articlePage.clickButton("new");
 
 		Log.info("Step 4. Fill \"Add new article\" form ");
-		addNewArticlePage.createArticle(articleName, articleContent, "Published");
+		addNewArticlePage.createArticle(articleName, articleContent,
+				"Published");
 
 		Log.info("VP. Verify the article is saved successfully ");
-		Assert.assertTrue(articlePage.doesConfirmMessageDisplay("Article saved."),
-				"Message displays.");
+		Assert.assertTrue(
+				articlePage.doesConfirmMessageDisplay("Article saved."),
+				"Message should be displayed.");
 		Assert.assertTrue(articlePage.doesArticleExists(articleName),
-				"Article exists.");
+				"Article should exist.");
+	}
 
+	@Test(description = "TC_JOOMLA_ARTICLE_004 - Verify user can unpublish a published article")
+	public void testTC004() {
 		Log.info("Step 5. Check on the recently added article's checkbox");
 		articlePage.selectCheckBox(articleName);
 
@@ -50,10 +57,14 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
 		Log.info("VP. Verify the article is unpublished successfully");
 		Assert.assertTrue(
 				articlePage.doesConfirmMessageDisplay("article unpublished."),
-				"Message displays.");
-		Assert.assertTrue(articlePage.doesStatusExists(articleName, "unpublish"),
-				"Set unpublish status successfully.");
-		
+				"Message should be displayed.");
+		Assert.assertTrue(
+				articlePage.doesStatusExists(articleName, "unpublish"),
+				"Article should be displayed with published status.");
+	}
+
+	@AfterMethod
+	public void afterMethod() throws InterruptedException {
 		Log.info("Final. Clean data");
 		articlePage.cleanData();
 	}

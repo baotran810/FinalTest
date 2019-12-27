@@ -10,9 +10,12 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
+	
 	LoginPage logInPage = new LoginPage();
 	HomePage homePage = new HomePage();
 	ArticlePage articlePage = new ArticlePage();
@@ -25,8 +28,8 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 	String newArticleName = Utilities.randomTitle();
 	String newArticleContent = Utilities.randomContent();
 
-	@Test(description = "TC_JOOMLA_ARTICLE_002 - Verify user can edit an article")
-	public void testTC002() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Log in");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 		Log.info("User can log in with valid account");
@@ -40,31 +43,39 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 		Log.info("Step 4. Fill information in new article page");
 		addNewArticlePage.createArticle(articleName, articleContent, "");
 
-		Log.info("Step 5. Verify the article is saved successfully ");
+		Log.info("VP. Verify the article is saved successfully ");
 		Assert.assertTrue(
 				articlePage.doesConfirmMessageDisplay("Article saved."),
-				"Message displays.");
+				"Message should be displayed.");
 		Assert.assertTrue(articlePage.doesArticleExists(articleName),
-				"Article exists.");
+				"Article should exist.");
 
-		Log.info("Step 6. Select article to edit");
+	}
+
+	@Test(description = "TC_JOOMLA_ARTICLE_002 - Verify user can edit an article")
+	public void testTC002() {
+		Log.info("Step 5. Select article to edit");
 		articlePage.selectCheckBox(articleName);
 
-		Log.info("Step 7. Click on 'Edit' icon of the top right toolbar");
+		Log.info("Step 6. Click on 'Edit' icon of the top right toolbar");
 		articlePage.clickButton("edit");
 
-		Log.info("Step 8. Edit article");
+		Log.info("Step 7. Edit article");
 		editArticlePage
 				.editArticle(newArticleName, newArticleContent, category);
 
-		Log.info("Step 9. Verify the article is edited successfully ");
+		Log.info("VP. Verify the article is edited successfully ");
 		Assert.assertTrue(
 				articlePage.doesConfirmMessageDisplay("Article saved."),
-				"Message displays.");
+				"Message should displayed.");
 		Assert.assertTrue(articlePage.doesArticleExists(newArticleName),
-				"Article exists.");
+				"Article should exist.");
+	}
 
+	@AfterMethod
+	public void afterMethod() throws InterruptedException {
 		Log.info("Final. Clean data");
 		articlePage.cleanData();
 	}
+	
 }

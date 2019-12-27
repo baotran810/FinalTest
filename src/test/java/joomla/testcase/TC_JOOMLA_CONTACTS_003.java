@@ -9,6 +9,8 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
@@ -21,8 +23,8 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 	String nameContact = Utilities.randomName();
 	String category = "Sample Data-Contact";
 
-	@Test(description = "TC_JOOMLA_CONTACTS_003-Verify user can publish an unpublished contact")
-	public void testTC003() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Login with valid account");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -37,10 +39,13 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 
 		Log.info("VP. Verify the contact is saved successfully");
 		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("Contact saved"),
-				"Message displays.");
+				"Message should be displayed.");
 		Assert.assertTrue(contactPage.doesContactExists(nameContact),
-				"Contact exists.");
+				"Contact should exist.");
+	}
 
+	@Test(description = "TC_JOOMLA_CONTACTS_003-Verify user can publish an unpublished contact")
+	public void testTC003() {
 		Log.info("Step 5. Check on the recently added contact's checkbox");
 		contactPage.selectCheckBox(nameContact);
 
@@ -49,10 +54,14 @@ public class TC_JOOMLA_CONTACTS_003 extends TestHelper {
 
 		Log.info("VP. Verify the contact is published successfully");
 		Assert.assertTrue(contactPage.doesStatusExists(nameContact, "publish"),
-				"The icon of the selected item is showed as 'Publish'.");
-		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("contact published"),
-				"Message displays.");
+				"The icon of the selected item should be showed as 'Publish'.");
+		Assert.assertTrue(
+				contactPage.doesConfirmMsgDisplay("contact published"),
+				"Message should be displayed.");
+	}
 
+	@AfterMethod
+	public void afterMethod() throws InterruptedException {
 		Log.info("Final. Clean data");
 		contactPage.cleanData();
 	}
