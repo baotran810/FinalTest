@@ -5,7 +5,7 @@
 		<classes>
 			<class name="joomla.testcase.TC_JOOMLA_CONTACTS_008" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>

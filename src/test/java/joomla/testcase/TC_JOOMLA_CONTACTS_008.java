@@ -3,7 +3,7 @@ package joomla.testcase;
 import joomla.common.Log;
 import joomla.constant.Constant;
 import joomla.page.ContactsPage;
-import joomla.page.HelpPageOfContact;
+import joomla.page.ContactHelpPage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
@@ -14,7 +14,7 @@ public class TC_JOOMLA_CONTACTS_008 extends TestHelper{
 	LoginPage logIn = new LoginPage();
 	HomePage homePage = new HomePage();
 	ContactsPage contact = new ContactsPage();
-	HelpPageOfContact helpContact = new HelpPageOfContact();
+	ContactHelpPage helpContact = new ContactHelpPage();
 
 	@Test(description = "TC_JOOMLA_CONTACTS_008 - Verify user can access contact's help section")
 	public void testTC008() throws InterruptedException {
