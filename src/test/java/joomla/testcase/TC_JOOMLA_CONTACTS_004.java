@@ -18,7 +18,7 @@ public class TC_JOOMLA_CONTACTS_004 extends TestHelper {
 	ContactsPage contact = new ContactsPage();
 	AddNewContactsPage newContact = new AddNewContactsPage();
 
-	String nameContact = Utilities.randomTitle();
+	String nameContact = Utilities.randomName();
 	String category = "Sample Data-Contact";
 
 	@Test(description = "TC_JOOMLA_CONTACTS_004 - Verify user can unpublish a published contact")
