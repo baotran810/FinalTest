@@ -10,6 +10,8 @@ import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
@@ -24,10 +26,9 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 	String newNameContact = Utilities.randomNewContact();
 	String category = "Sample Data-Contact";
 	String newCategory = "- Park Site";
-
-	@Test(description = "TC_JOOMLA_CONTACTS_002-Verify user can edit a contact")
-	public void testTC002() throws InterruptedException {
-
+	
+	@BeforeMethod
+	public void beforeMethod() {
 		Log.info("Step 1. Login with valid account");
 		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -42,26 +43,33 @@ public class TC_JOOMLA_CONTACTS_002 extends TestHelper {
 
 		Log.info("VP. Verify the contact is saved successfully");
 		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("Contact saved"),
-				"Message displays.");
+				"Message should be displayed.");
 		Assert.assertTrue(contactPage.doesContactExists(nameContact),
-				"Contact exists.");
+				"Contact should exist.");
+	}
 
+	@Test(description = "TC_JOOMLA_CONTACTS_002-Verify user can edit a contact")
+	public void testTC002() {
 		Log.info("Step 5. Select article to edit");
 		contactPage.selectCheckBox(nameContact);
 
 		Log.info("Step 6. Click on 'Edit' icon of the top right toolbar");
 		contactPage.clickButton("edit");
 
-		Log.info("Step 8. Edit article");
+		Log.info("Step 7. Edit article");
 		editContactPage.editContact(newNameContact, newCategory);
 
 		Log.info("VP. Verify the contact is saved successfully");
 		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("Contact saved"),
-				"Message displays.");
+				"Message should be displayed.");
 		Assert.assertTrue(contactPage.doesContactExists(newNameContact),
-				"Contact exists.");
-
+				"Contact should exist.");
+	}
+	
+	@AfterMethod
+	public void afterMethod() throws InterruptedException {
 		Log.info("Final. Clean data");
 		contactPage.cleanData();
 	}
+	
 }

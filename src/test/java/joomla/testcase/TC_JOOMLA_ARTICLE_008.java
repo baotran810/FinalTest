@@ -2,8 +2,8 @@ package joomla.testcase;
 
 import joomla.common.Log;
 import joomla.constant.Constant;
-import joomla.page.ArticlePage;
 import joomla.page.ArticleHelpPage;
+import joomla.page.ArticlePage;
 import joomla.page.HomePage;
 import joomla.page.LoginPage;
 
@@ -17,7 +17,7 @@ public class TC_JOOMLA_ARTICLE_008 extends TestHelper {
 
 	ArticlePage articlePage = new ArticlePage();
 	ArticleHelpPage articleHelpPage = new ArticleHelpPage();
-
+	
 	@Test(description = "TC_JOOMLA_ARTICLE_008 - Verify that user can access article's help section")
 	public void testTC008() throws InterruptedException {
 		Log.info("Step 1. Log in");
@@ -30,7 +30,7 @@ public class TC_JOOMLA_ARTICLE_008 extends TestHelper {
 		Log.info("Step 3. Click on 'Help' icon of the top right toolbar");
 		articlePage.clickButton("help");
 
-		Log.info("Step 4. Verify the article's help window is displayed");
-		Assert.assertTrue(articleHelpPage.doesHelpPageDisplays(), "Window displays");
+		Log.info("VP. Verify the article's help window is displayed");
+		Assert.assertTrue(articleHelpPage.doesHelpPageDisplays(), "Help window should be displayed.");
 	}
 }
