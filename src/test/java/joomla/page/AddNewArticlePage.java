@@ -5,7 +5,7 @@ import joomla.constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class AddNewArticle {
+public class AddNewArticlePage {
 
 	private By _txtTitle = By.id("jform_title");
 	private By _iframe = By.id("jform_articletext_ifr");
@@ -21,9 +21,9 @@ public class AddNewArticle {
 	private String liStatus = "//select[@id='jform_state']/..//li[text()='%s']";
 
 	public void createArticle(String title, String content, String status) {
-		WebElement Element5 = Constant.WEBDRIVER.findElement(_iframe);
+		WebElement iframe = Constant.WEBDRIVER.findElement(_iframe);
 		Constant.WEBDRIVER.findElement(_txtTitle).sendKeys(title);
-		Constant.WEBDRIVER.switchTo().frame(Element5);
+		Constant.WEBDRIVER.switchTo().frame(iframe);
 		Constant.WEBDRIVER.findElement(_txtArea).sendKeys(content);
 		Constant.WEBDRIVER.switchTo().defaultContent();
 
