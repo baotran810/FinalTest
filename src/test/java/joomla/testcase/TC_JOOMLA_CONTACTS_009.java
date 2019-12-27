@@ -13,10 +13,10 @@ import org.testng.annotations.Test;
 
 public class TC_JOOMLA_CONTACTS_009 extends TestHelper {
 
-	LoginPage logIn = new LoginPage();
+	LoginPage logInPage = new LoginPage();
 	HomePage homePage = new HomePage();
-	ContactsPage contact = new ContactsPage();
-	AddNewContactsPage newContact = new AddNewContactsPage();
+	ContactsPage contactPage = new ContactsPage();
+	AddNewContactsPage addNewContactPage = new AddNewContactsPage();
 
 	String contactName = Utilities.randomName();
 	String category = "Sample Data-Contact";
@@ -25,31 +25,31 @@ public class TC_JOOMLA_CONTACTS_009 extends TestHelper {
 	public void testTC009() throws InterruptedException {
 
 		Log.info("Step 1. Login with valid account");
-		logIn.login(Constant.USERNAME, Constant.PASSWORD);
+		logInPage.login(Constant.USERNAME, Constant.PASSWORD);
 
 		Log.info("Step 2. Go to Contacts page");
 		homePage.goToContacts();
 
 		Log.info("Step 3. Click on 'New' icon of the top right toolbar ");
-		contact.clickButton("new");
+		contactPage.clickButton("new");
 
 		Log.info("Step 4. Fill information into Name, Category, Status field");
-		newContact.addNewContact(contactName, "Published", category);
+		addNewContactPage.addNewContact(contactName, "Published", category);
 
 		Log.info("VP. Verify the contact is saved successfully");
-		Assert.assertTrue(contact.doesConfirmMsgDisplays("Contact saved"),
+		Assert.assertTrue(contactPage.doesConfirmMsgDisplay("Contact saved"),
 				"Message displays.");
-		Assert.assertTrue(contact.doesContactExists(contactName),
+		Assert.assertTrue(contactPage.doesContactExists(contactName),
 				"Contact exists.");
 
 		Log.info("Step 5. Search contacts using the filter text field");
-		contact.searchText(contactName);
+		contactPage.searchText(contactName);
 
 		Log.info("VP. Verify the titles of displayed contacts are partially matched with the entered keyword");
-		Assert.assertTrue(contact.doesContactExistBySearch(contactName),
+		Assert.assertTrue(contactPage.doesContactExistBySearch(contactName),
 				"Contact exists.");
-		
+
 		Log.info("Final. Clean data");
-		contact.cleanData();
+		contactPage.cleanData();
 	}
 }

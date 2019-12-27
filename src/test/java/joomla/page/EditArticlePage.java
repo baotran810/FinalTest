@@ -18,10 +18,10 @@ public class EditArticlePage {
 
 	public void editArticle(String newTitle, String newContent,
 			String newCategory) {
-		WebElement Element5 = Constant.WEBDRIVER.findElement(_iframe);
+		WebElement iframe = Constant.WEBDRIVER.findElement(_iframe);
 		Constant.WEBDRIVER.findElement(_txtTitle).clear();
 		Constant.WEBDRIVER.findElement(_txtTitle).sendKeys(newTitle);
-		Constant.WEBDRIVER.switchTo().frame(Element5);
+		Constant.WEBDRIVER.switchTo().frame(iframe);
 		Constant.WEBDRIVER.findElement(_txtArea).sendKeys(newContent);
 		Constant.WEBDRIVER.switchTo().defaultContent();
 		Constant.WEBDRIVER.findElement(_category).click();
